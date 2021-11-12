@@ -1,9 +1,29 @@
+import React from 'react'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from 'react-responsive-carousel'
+
+
 function Banner() {
     return (
-        <div className='flex justify-center p-9'>
-            <div className='w-4/5 h-96  text-center bg-green-300  '  >
-                <h1>jj</h1>
-            </div>
+        <div className='relative lg:px-20'>
+            <Carousel 
+            autoPlay
+            infiniteLoop
+            showStatus={false}
+            showIndicators={false}
+            showThumbs={false}
+            interval={5000}
+            >
+                <div>
+                    <img loading='lazy' src='/b1.gif'/>
+                </div>
+                <div>
+                <img loading='lazy' src='/b2.jpg'/>
+                </div>
+                <div>
+                    <img loading='lazy' src='/b3.gif'/>
+                </div>
+            </Carousel>
             
         </div>
     )
