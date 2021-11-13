@@ -5,7 +5,7 @@ import React from 'react'
 
 function ProductCard({product}) {
     return (
-        <div className='relative flex flex-col shadow-2xlntext-sm md:text-base bg-white m-2 p-5 lg:m-5'>
+        <div className='relative flex flex-col shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-14 lg:m-5'>
             
             <div>
             <p className='absolute text-xs top-2 right-2'>{product.category}</p> 

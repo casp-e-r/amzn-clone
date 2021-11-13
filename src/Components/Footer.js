@@ -1,10 +1,15 @@
 import React from 'react'
+import Image from 'next/image'
 
 function Footer() {
     return (
-        <div className='mt-20 bg-yellow-300 h-20 lg:h-40'>
-            <div className='p-3 link'>
-                k
+        <div className='mt-20 border-t-8 border-yellow-300 h-20 lg:h-40'>
+            <div className='w-full bg-blue-700 text-center'>
+                <a className=' text-xs md:text-sm lg:text-base text-white cursor-pointer hover:border-b-2 border-yellow-300'>to top</a>
+            </div>
+            <div className='p-1 md:px-6'>
+                <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='fixed'/> 
+                
 
             </div>
         </div>
