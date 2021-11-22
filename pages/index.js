@@ -14,7 +14,7 @@ export default function Home({products,categories}) {
       </Head>
 
       <Navbar/>
-      <main className='justify-center '>
+      <main className='justify-center lg:px-20 bg-yellow-100  '>
       <Banner/>
       <Feed products={products} categories={categories}/>
       
@@ -24,7 +24,7 @@ export default function Home({products,categories}) {
     </div>
   )
 }
-export async function getServerSideProps(context){
+export async function getStaticProps(context){
   const products =await fetch('https://fakestoreapi.com/products')
   .then(res=>res.json())
   const categories =await fetch('https://fakestoreapi.com/products/categories')
