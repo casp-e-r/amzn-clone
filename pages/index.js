@@ -14,7 +14,7 @@ export default function Home({products,categories}) {
       </Head>
 
       <Navbar/>
-      <main className='justify-center lg:px-20 bg-yellow-100  '>
+      <main className='justify-center lg:px-20 bg-yellow-100   '>
       <Banner/>
       <Feed products={products} categories={categories}/>
       

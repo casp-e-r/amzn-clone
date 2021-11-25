@@ -5,7 +5,7 @@ import CartProduct from "./CartProduct"
 function Cart() {
     const items = useSelector(selectItems)
     return (
-        <div className='m-4 md:m-6 lg:mx-40  lg:flex h-screen'>
+        <div className='m-4 md:m-6 lg:mx-40  lg:flex relative'>
             <div className='w-full lg:w-2/3 p-2  '>
                 <h1>{items.length === 0 ? 'Cart is empty':'Your Cart'}</h1>
                 { items.map ((item,i)=>{

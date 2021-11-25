@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux'
 import { removeFromCart, updateQuantity } from '../slices/cartSlice'
 import { MenuAlt1Icon } from '@heroicons/react/outline'
+import  Router  from 'next/router'
 
 function CartProduct({product}) { 
     const dispatch = useDispatch()
@@ -12,14 +13,12 @@ function CartProduct({product}) {
     const productQuantityIncrement=()=>{ 
         let count=product.quantity+1
         let updatedProduct={...product, quantity:count}
-        console.log(updatedProduct);
         dispatch(updateQuantity(updatedProduct))
     }
     const productQuantityDecrement=()=>{
         if(product.quantity!=1){
             let count=product.quantity-1
             let updatedProduct={...product, quantity:count}
-            console.log(updatedProduct);
             dispatch(updateQuantity(updatedProduct))
         }
         
@@ -28,7 +27,7 @@ function CartProduct({product}) {
         <div className='grid grid-cols-5 m-2 mx-3 my-4'>
             <Image width={100} height={120} src={product.image} objectFit='contain'/>
             <div className='text-sm md:text-base col-span-3 mx-5 space-y-2'>
-                <p>{product.title}</p>
+                <p className='hover:cursor-pointer font-medium' onClick={()=>Router.push(`/product/${product.id}`)}>{product.title}</p>
                 <p>{product.category}</p>
                 {/* <p className='text-xs my-2 '>{product.description}</p> */}
                 <div className='flex space-x-2'>

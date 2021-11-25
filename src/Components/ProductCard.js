@@ -1,14 +1,24 @@
 
 import Image from 'next/image';
 import  Router  from 'next/router';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import  {addToCart } from '../slices/cartSlice'
+import {HeartIcon as H1} from '@heroicons/react/outline'
+import { addToFav, removeFromFav } from '../slices/wishSlice';
+
 
 
 function ProductCard({product}) {
+    const [state, setstate] = useState(0)
     
     const dispatch = useDispatch()
+    const addToWishlist=()=>{
+        dispatch(addToFav(product))
+    }
+    const removeFromWishList=()=>{
+        dispatch(removeFromFav(product))
+    }
     const addItemToCart = ()=>{
         const cartProduct= {...product,quantity:1}
         //console.log('dd');
@@ -22,11 +32,15 @@ function ProductCard({product}) {
             
             <div>
             <p className='absolute text-xs top-2 right-2'>{product.category}</p> 
-            <div className='text-center mt-1'>
+            <div className='relative text-center mt-1'>
                 <Image src={product.image} width={200} height={200} objectFit='contain' />
+                
+                <H1 className={ !state ? ' text-red-700 cursor-pointer h-3 ' : 'cursor-pointer fill-current text-red-700 h-3'} onClick={()=>setstate(!state)}/>
+
+                
             </div>
             <p className='text-sm md:text-base cursor-pointer hover:font-medium hover:underline'
-                onClick={()=>Router.push(`/product/${product.id}`)}
+                onClick={()=>Router.push(`/product/${product.id}`),state ? addToWishlist():null}
                 >
                     
                 {product.title}</p>

@@ -6,9 +6,12 @@ import Footer from '../../src/Components/Footer'
 function  detail({product}) {
     
     return (
-        <div>
+        <div className=' h-screen justify-between'>
             <Navbar/>
-            <Product product={product} />
+            <div className='h-auto'>
+                <Product product={product} />
+
+            </div>
             <Footer/>
         </div>
     )
