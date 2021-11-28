@@ -19,7 +19,7 @@ function  detail({product}) {
 
 export default detail
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
     const products =await fetch('https://fakestoreapi.com/products')
     .then(res=>res.json())
       const paths=products.map(p=>({
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 
 }
 
-  export async function getStaticProps({ params }) {
+  export async function getServerSideProps({ params }) {
     // Fetch necessary data for the product details using params.id
     console.log(params);
    

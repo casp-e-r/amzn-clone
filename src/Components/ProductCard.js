@@ -10,15 +10,25 @@ import { addToFav, removeFromFav } from '../slices/wishSlice';
 
 
 function ProductCard({product}) {
-    const [state, setstate] = useState(0)
+    const [state, setState] = useState(0)
     
     const dispatch = useDispatch()
-    const addToWishlist=()=>{
+    // useEffect(() => {
+    //     const showData=window.localStorage.getItem('Wshow')
+    //     setState(JSON.parse(showData))    
+    // },[])
+    // useEffect(() => {
+    //     window.localStorage.setItem('Wshow',JSON.stringify(state))
+        
+    // })
+    
+    if(state){
         dispatch(addToFav(product))
-    }
-    const removeFromWishList=()=>{
+    }else{
         dispatch(removeFromFav(product))
     }
+    
+    
     const addItemToCart = ()=>{
         const cartProduct= {...product,quantity:1}
         //console.log('dd');
@@ -35,12 +45,12 @@ function ProductCard({product}) {
             <div className='relative text-center mt-1'>
                 <Image src={product.image} width={200} height={200} objectFit='contain' />
                 
-                <H1 className={ !state ? ' text-red-700 cursor-pointer h-3 ' : 'cursor-pointer fill-current text-red-700 h-3'} onClick={()=>setstate(!state)}/>
+                <H1 className={ !state ? ' text-red-700 cursor-pointer h-3 ' : 'cursor-pointer fill-current text-red-700 h-3'} onClick={()=>setState(!state)}/>
 
                 
             </div>
             <p className='text-sm md:text-base cursor-pointer hover:font-medium hover:underline'
-                onClick={()=>Router.push(`/product/${product.id}`),state ? addToWishlist():null}
+                onClick={()=>Router.push(`/product/${product.id}`)}
                 >
                     
                 {product.title}</p>

@@ -48,7 +48,8 @@ function Navbar() {
                         <li className="">
                             <button
                                 className="  py-2 px-4 block whitespace-no-wrap"
-                                onClick={!session ? signIn :signOut}
+                                onClick={!session ? ()=>Router.push('/signin') : signOut}
+                                // onClick={!session ? signIn :signOut}
                             >{session ? 'sign out':'log in'}</button>
                         </li>
                         <li className="">
