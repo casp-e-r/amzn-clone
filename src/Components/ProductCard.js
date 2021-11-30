@@ -18,8 +18,7 @@ function ProductCard({product}) {
     //     setState(JSON.parse(showData))    
     // },[])
     // useEffect(() => {
-    //     window.localStorage.setItem('Wshow',JSON.stringify(state))
-        
+    //     window.localStorage.setItem('Wshow',JSON.stringify(state))    
     // })
     
     if(state){

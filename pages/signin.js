@@ -7,7 +7,7 @@ import Router from 'next/router';
 function signin({ providers }) {
   console.log(providers);
   return (
-    <div className='grid  justify-center mx-40'>
+    <div className='grid  justify-center '>
       <div className=' my-20 text-center text-black font-medium'>
         <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='responsive' onClick={() => Router.push('/')} className='cursor-pointer' />
         <p>log in  to amzn</p>
