@@ -2,7 +2,7 @@ import Image from "next/dist/client/image";
 import React, { useEffect, useState } from "react";
 import  Router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, selectItems } from "../slices/cartSlice";
+import { addToCart, selectItems, showCart } from "../slices/cartSlice";
 function Product({product}) {
     const [state, setState] = useState(0)
     const items = useSelector(selectItems)
@@ -35,7 +35,7 @@ function Product({product}) {
                     <p>{product.description}</p>
                     <p>{product.rating.rate}</p>
                     <button 
-                    onClick={!state ? addItemToCart : ()=>Router.push('/cart')}
+                    onClick={!state ? addItemToCart : ()=>dispatch(showCart(true))}
                     className='p-2 px-10 text-white bg-yellow-400'
                     >
                     {!state ? 'add':'go to cart'}</button>

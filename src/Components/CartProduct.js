@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux'
-import { removeFromCart, updateQuantity } from '../slices/cartSlice'
+import { removeFromCart, showCart, updateQuantity } from '../slices/cartSlice'
 import { MenuAlt1Icon } from '@heroicons/react/outline'
 import  Router  from 'next/router'
 
@@ -24,10 +24,13 @@ function CartProduct({product}) {
         
     }
     return (
-        <div className='grid grid-cols-5 m-2 mx-3 my-4'>
-            <Image width={100} height={120} src={product.image} objectFit='contain'/>
-            <div className='text-sm md:text-base col-span-3 mx-5 space-y-2'>
-                <p className='hover:cursor-pointer font-medium' onClick={()=>Router.push(`/product/${product.id}`)}>{product.title}</p>
+        <div className='w-full border-2  flex col-span-5 m-2 mx-3 my-4 gap-x-6'>
+            <div>
+                <Image width={100} height={120} src={product.image} objectFit='contain' />
+            </div>
+            
+            <div className='text-sm md:text-base col-span-2 mx-1 space-y-2'>
+                <p className='hover:cursor-pointer border-b' onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>{product.title}</p>
                 <p>{product.category}</p>
                 {/* <p className='text-xs my-2 '>{product.description}</p> */}
                 <div className='flex space-x-2'>
@@ -35,7 +38,8 @@ function CartProduct({product}) {
                 <p>{product.quantity*product.price}</p>
                 </div>
             </div>
-            <div className='flex flex-col '>
+
+            <div className='flex flex-col col-span-2 '>
                 <div className='flex text-xs justify-center my-2'>
                     <button
                      onClick={productQuantityDecrement} 
@@ -43,7 +47,7 @@ function CartProduct({product}) {
                     <span>{product.quantity}</span>
                     <button
                      onClick={productQuantityIncrement}  
-                     className='bg-blue-700 text-white p-1 mx-3 '>+</button>
+                     className={ product.quantity < 5  ?'text-white p-1 mx-3  bg-blue-700 ':'text-white p-1 mx-3  bg-blue-900 cursor-not-allowed' }>+</button>
                 </div>
                 <button className='text-xs text-white bg-blue-700 ' onClick={removeItemFromCart}>Remove from cart</button>
 

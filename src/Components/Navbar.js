@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SearchIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import { signIn, signOut, session, useSession } from "next-auth/client";
 import Router from "next/router";
-import { useSelector } from 'react-redux';
-import { selectItems } from '../slices/cartSlice';
+import { useSelector,useDispatch } from 'react-redux';
+import { selectItems,showCart,toggleCart } from '../slices/cartSlice';
+import Cart from './Cart';
 
 function Navbar() {
     const [session] = useSession();
-    // const router = useRouter();
+    // const [show, setShow] = useState(false)
     const items = useSelector(selectItems)
+    const toggle = useSelector(toggleCart)
+    const dispatch = useDispatch()
+   
+    
+    // useEffect(() => {
+    //   setShow(toggle)
+    // })
+
 
     return (
+        <div className='relative'>
         <div className=' flex  items-center  lg:space-x-12 '>
             <div className='mx-1 md:mr-20 md:ml-10'>
                 <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
@@ -42,7 +52,8 @@ function Navbar() {
                         <li className="">
                             <button
                                 className="rounded-t   py-2 px-4 block whitespace-no-wrap"
-                                onClick={()=>Router.push('/wishlist')}
+                                onClick={() => Router.push('/wishlist')}
+
                             >wishlist</button>
                         </li>
                         <li className="">
@@ -70,13 +81,22 @@ function Navbar() {
 
 
                 <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-9   text-sm lg:text-base '>{items.length}</span>
-                <div className='relative cursor-pointer' onClick={() => Router.push('/cart')}>
+                <div className='relative cursor-pointer' onClick={()=>dispatch(showCart(true))}>
                     <ShoppingBagIcon className='h-10 p-2 md:mr-10' />
                 </div>
             </div>
 
 
         </div>
+        {toggle && 
+        // <ReactModal
+        // isOpen={false}
+        // >
+             <Cart  t={toggle}/> 
+        // </ReactModal>
+        }
+        </div>
+        
     )
 }
 
