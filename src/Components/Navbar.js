@@ -13,11 +13,17 @@ function Navbar() {
     const items = useSelector(selectItems)
     const toggle = useSelector(toggleCart)
     const dispatch = useDispatch()
-   
+   console.log(toggle);
     
-    // useEffect(() => {
-    //   setShow(toggle)
-    // })
+    useEffect(() => {
+      if(!toggle){
+    //       document.body.style.overflow='hidden'
+    //   }else{
+        document.body.style.overflow='unset'
+        document.body.style.scrollMargin='none'
+
+      }
+    })
 
 
     return (
@@ -32,12 +38,12 @@ function Navbar() {
                 <SearchIcon className='h-10 p-2 justify-end font-black cursor-pointer' />
             </div>
             
-                <div className="group inline-block relative ">
+                <div className="group inline-block relative items-center  ">
                     <button
-                        className="bg-yellow-300  font-semibold py-1 px-4 rounded inline-flex items-center">
+                        className="  font-semibold py-1 px-1 rounded inline-flex items-center">
                         
                         <UserIcon className='h-8 p-1  ' />
-                        <p className='text-xs '>{session ? `hello, ${session.user.name}`: ' Sign In'}</p>
+                        {/* <p className='text-xs '>{session ? `hello, ${session.user.name}`: ' Sign In'}</p> */}
 
                         <svg
                             className="fill-current h-4 w-4"
@@ -48,26 +54,20 @@ function Navbar() {
                                 d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                         </svg>
                     </button>
-                    <ul className="absolute hidden z-50 bg-yellow-100 pt-1 group-hover:block">
+                    <ul className="absolute hidden z-50 bg-yellow-100 pt-1 py-1  group-hover:block">
                         <li className="">
                             <button
-                                className="rounded-t   py-2 px-4 block whitespace-no-wrap"
-                                onClick={() => Router.push('/wishlist')}
+                                className=" text-sm  py-2 px-6 block whitespace-nowrap"
+                                onClick={() => Router.push('/account')}
 
-                            >wishlist</button>
+                            >My account</button>
                         </li>
                         <li className="">
                             <button
-                                className="  py-2 px-4 block whitespace-no-wrap"
+                                className=" text-sm py-2 px-6 block whitespace-nowrap"
                                 onClick={!session ? ()=>Router.push('/signin') : signOut}
                                 // onClick={!session ? signIn :signOut}
                             >{session ? 'sign out':'log in'}</button>
-                        </li>
-                        <li className="">
-                            <a
-                                className="rounded-b py-2 px-4 block whitespace-no-wrap"
-                                href="#"
-                            >Three is the magic number</a>
                         </li>
                     </ul>
                 </div>

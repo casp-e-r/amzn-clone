@@ -14,12 +14,12 @@ function WishCard({product}) {
     
     return (
         
-            <div className=' relative flex flex-col shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
+            <div className=' relative flex flex-col border text-sm md:text-base bg-white '>
             
             <div>
             
             <div className='relative text-center mt-1'>
-                <Image src={product.image} width={200} height={200} objectFit='contain' />
+                <Image src={product.image} width={100} height={100} objectFit='contain' />
                 
                 <H1 className='cursor-pointer fill-current text-red-700 h-3' onClick={()=>dispatch(removeFromFav(product))} />
 
@@ -36,7 +36,7 @@ function WishCard({product}) {
 
             
             </div>
-            <button className=' text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-transparent hover:bg-blue-900 text-white text-center p-2 rounded'
+            <button className=' text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-blue-900 text-white text-center p-2 rounded'
             >add     
             </button>
         </div>
