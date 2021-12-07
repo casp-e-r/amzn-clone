@@ -8,7 +8,7 @@ function  detail({product}) {
     return (
         <div className=' h-screen justify-between'>
             <Navbar/>
-            <div className='h-auto'>
+            <div className='h-auto mt-16'>
                 <Product product={product} />
 
             </div>

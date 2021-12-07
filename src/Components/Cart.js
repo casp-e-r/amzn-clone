@@ -5,6 +5,8 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectItems,showCart, toggleCart } from "../slices/cartSlice"
 import CartProduct from "./CartProduct"
+import { XIcon } from '@heroicons/react/outline'
+
 
 
 function Cart() {
@@ -24,12 +26,14 @@ function Cart() {
 
     
     return (
-        <div id='cart' className='  w-full h-30 bg-opacity-0  ' >
+        <div id='cart' className=' w-screen h-30 bg-opacity-0   ' >
         <div className='z-40 min-h-screen absolute right-0  top-0 left-0 ' onClick={()=>dispatch(showCart(false))}>   
         </div>  
-        <div  className='fixed w-full  float-right  z-50 top-0 right-0 bottom-0 shadow-2xl bg-white bg-opacity-70 overflow-y-scroll md:w-2/5'>
-            <button className='m-2 bg-yellow-300 py-1 px-3' onClick={()=>dispatch(showCart(false))} >bbb</button>
-        <div className=' m-1 md:m-3 lg:mx-6 grid relative min-h-screen '>
+        <div  className='fixed w-full min-h-screen  float-right  z-50 top-0 right-0 bottom-0 shadow-2xl bg-white bg-opacity-70 overflow-y-scroll md:w-2/5'>
+            {/* <div className='fixed top-0 bg-gray-900'> */}
+            <button className=' m-2 bg-yellow-300 py-1 px-3 rounded-full' onClick={()=>dispatch(showCart(false))} ><XIcon height={20}/></button>
+            {/* </div> */}
+        <div className=' m-1 md:m-3 lg:mx-6 grid relative  '>
             <div className='w-full p-2'>
                 <h1>{items.length === 0 ? 'Cart is empty' : 'Your Cart'}</h1>
                 {items.map((item, i) => {

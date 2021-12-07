@@ -27,8 +27,8 @@ function Navbar() {
 
 
     return (
-        <div className='relative'>
-        <div className=' flex  items-center  lg:space-x-12 '>
+        <div className=' relative  top-0 z-50'>
+        <div className=' flex items-center lg:space-x-12 '>
             <div className='mx-1 md:mr-20 md:ml-10'>
                 <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
             </div>
@@ -74,12 +74,6 @@ function Navbar() {
             
 
             <div className=' flex  items-center m-3 justify-end ' >
-                {/* <div className=' flex items-center px-3 cursor-pointer  ' onClick={!session ? signIn :signOut}>
-                    <UserIcon className='h-9 p-1  ' />
-                    <p className='text-xs '>{session ? `hello, ${session.user.name}`: ' Sign In'}</p>
-                </div> */}
-
-
                 <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-9   text-sm lg:text-base '>{items.length}</span>
                 <div className='relative cursor-pointer' onClick={()=>dispatch(showCart(true))}>
                     <ShoppingBagIcon className='h-10 p-2 md:mr-10' />
@@ -89,11 +83,7 @@ function Navbar() {
 
         </div>
         {toggle && 
-        // <ReactModal
-        // isOpen={false}
-        // >
              <Cart  t={toggle}/> 
-        // </ReactModal>
         }
         </div>
         
