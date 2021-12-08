@@ -8,8 +8,30 @@ function Shipping() {
             </div>
             <div>
                 <form>
-                    <label></label>
-                    <input type='input'/>
+                    <div className='grid '>
+                    
+                    <div className='flex flex-col sm:flex-row w-screen'>
+
+                   <div className='bg-red-200'>
+                       <h1>ggg</h1>
+                   </div>
+                   <div className='bg-red-200'>
+                       <h1>ggg</h1>
+                   </div>
+                    </div>
+                    
+
+
+                    
+
+                    {/* <div className='col-span-full md:col-span-6 '>        
+                    <label>2</label>
+                    <input className='outline' type='input'/>
+
+                    <label>3</label>
+                    <input className='outline' type='input'/>
+                    </div> */}
+                    </div>
                 </form>
             </div>
         </div>

@@ -25,8 +25,8 @@ function CartProduct({product}) {
     }
     return (
         <div className='w-full border-2  flex col-span-5 m-2 mx-3 my-4 gap-x-6'>
-            <div>
-                <Image width={100} height={120} src={product.image} objectFit='contain' />
+            <div className='border-r-2 p-2'>
+                <Image width={80} height={80} src={product.image} layout='fixed' objectFit='contain' />
             </div>
             
             <div className='text-sm md:text-base col-span-2 mx-1 space-y-2'>
