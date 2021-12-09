@@ -4,25 +4,32 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState ={
     shipping:[],
     payment:[],
-    order:[]
+    order:[],
+    step:'a'
 }
 export const checkoutSlice =createSlice({
     name:'checkout',
     initialState,
     reducers:{
         setShipping:(state,action)=>{
-
+            state.shipping=action.payload
         },
         setPayment:(state,action)=>{
 
         },
         setOrder:(state,action)=>{
 
+        },
+        setStep:(state,action)=>{
+            state.step=action.payload
         }
     }
 })
-export const {setShipping,setPayment,setOrder}=checkoutSlice.actions
+export const {setShipping,setPayment,setOrder,setStep}=checkoutSlice.actions
 
-export const checkout=(state) => state.checkout
+export const checkoutItems=(state) => state.checkout
+
+export const checkoutStep =(state) => state.checkout.step
+
 
 export default checkoutSlice.reducer;

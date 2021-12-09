@@ -2,7 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart, selectItems, updateQuantity } from '../../slices/cartSlice'
 import Image from 'next/image'
-import { PlusIcon, MinusIcon, TrashIcon } from '@heroicons/react/outline'
+import { PlusIcon, MinusIcon, TrashIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { setStep } from '../../slices/checkoutSlice'
 
 
 
@@ -26,7 +27,7 @@ function Review() {
         }
     }
     return (
-        <div className=' py-6'>
+        <div className=' py-6 '>
             
             <div className='flex flex-col space-y-2 justify-center items-center' >
                 <h1 >Order Summary</h1>
@@ -56,6 +57,12 @@ function Review() {
                         </div>
                     </div>)
                 })}
+                <div>
+                <div className='w-full space-x-80 flex justify-end'>
+                   {/* <button className='hidden' > <ChevronLeftIcon height={30}/></button> */}
+                   <button onClick={()=>dispatch(setStep('b'))}> <ChevronRightIcon height={30}/></button>
+                </div>
+                </div>
               
             
         </div>

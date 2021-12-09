@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { selectItems } from "../src/slices/cartSlice"
 import Image from 'next/image';
 import Review from "../src/Components/checkout/Review";
@@ -7,11 +7,16 @@ import { useEffect, useState } from "react";
 import Shipping from "../src/Components/checkout/Shipping";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import Payment from "../src/Components/checkout/Payment";
+import { checkoutItems, checkoutStep, setStep } from "../src/slices/checkoutSlice";
 
 function checkout(){
     const items = useSelector(selectItems)
     const [state, setstate] = useState(0)
-    console.log(state);
+    const step = useSelector(checkoutStep)
+    const dispatch = useDispatch()
+    
+
+
     useEffect(() => {
         // items.length<=0 && Router.push('/')
     }, [])
@@ -38,18 +43,11 @@ function checkout(){
                 </div>     
             </div>
             <div className=' md:w-1/2  '>
-                {state===0 ? <Review /> : state===1 ? <Shipping/> : <Payment/>}
+                {step==='a' ? <Review /> : step==='b' ? <Shipping/> :step==='c'? <Payment/>:null}
             </div>
             <div className='flex float-right space-x-4 mb-4   '>
                 <label>{state ? 'Total :': ' subtotal :'}</label>
                 <p>{items.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
-            </div>
-            <div className='mx-auto space-x-60 mt-auto pt-4 border-t-2'>
-              <button onClick={state ?()=> setstate(state-1) :null} 
-              className={state===0 ? 'cursor-not-allowed':'cursor-pointer'}><ChevronLeftIcon height={30}/></button> 
-              <button onClick={state!==2 ?()=>setstate(state+1) : null} 
-              className={state===2 ? 'cursor-not-allowed':'cursor-pointer'}><ChevronRightIcon width={30}/></button> 
-
             </div>
             <div>
                 <button
