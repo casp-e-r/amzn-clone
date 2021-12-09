@@ -4,6 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
+
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -19,8 +20,9 @@
     "stripe": "^8.191.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
+    "autoprefixer": "^10.4.0",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19"
   }
 }

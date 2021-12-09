@@ -2,9 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+
 @layer components {
     .link {
-        @apply cursor-pointer text-purple-900 hover:underline;
+        @apply  text-purple-900 font-extrabold hover:bg-pink-400  hover:underline;
     }
   
+}
+@layer base{
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    /* firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
 }

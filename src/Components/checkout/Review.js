@@ -37,8 +37,8 @@ function Review() {
                     return(
                     <div className='justify-center flex  items-center'>
                         <div className='flex flex-col gap-y-3 px-3'>
-                                <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
-                                <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityDecrement(e)}><MinusIcon className='h-3'/></button>
+                            <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
+                            <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityDecrement(e)}><MinusIcon className='h-3'/></button>
                         </div>
                         <div className=' justify-around '>
                         <Image height={60} width={60} layout='fixed' objectFit='contain' src={e.image}/>
@@ -51,11 +51,8 @@ function Review() {
                         <div className='float-right w-14'>
                             <h1>{e.quantity*e.price}</h1>
                         </div>
-                        <div className='flex items-center justify-center px-4 space-x-7'>
-                            
-                            
+                        <div className='flex items-center justify-center px-4 space-x-7'>                               
                             <button className='bg-red-500 text-white rounded-2xl  p-2' onClick={()=>removeItemFromCart(e)}>< TrashIcon className='h-4'/></button>
-
                         </div>
                     </div>)
                 })}
