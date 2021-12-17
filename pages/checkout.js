@@ -18,8 +18,8 @@ function checkout(){
 
 
     useEffect(() => {
-        // items.length<=0 && Router.push('/')
-    }, [])
+        dispatch(setStep('a'))
+    },[setStep])
     return(
         
         <>

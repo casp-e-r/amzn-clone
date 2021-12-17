@@ -58,7 +58,7 @@ function Review() {
                     </div>)
                 })}
                 <div>
-                <div className='w-full space-x-80 flex justify-end'>
+                <div className='w-full space-x-80 flex justify-end pt-10'>
                    {/* <button className='hidden' > <ChevronLeftIcon height={30}/></button> */}
                    <button onClick={()=>dispatch(setStep('b'))}> <ChevronRightIcon height={30}/></button>
                 </div>

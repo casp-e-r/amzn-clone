@@ -3,11 +3,16 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import useForm from '../../hooks/useForm'
 import { checkoutItems, setShipping, setStep } from '../../slices/checkoutSlice';
+import validateShipping from '../../utils/validateShipping';
 
 function Shipping() {
-    const {handleChange,values,setValues}=useForm()
+    const {handleChange,values,setValues,errors}=useForm(validateShipping)
     const dispatch = useDispatch()
     const checkout  = useSelector(checkoutItems)
+    // const forwardStep={
+    //     dispatch(setStep('c')),
+    //     dispatch(setShipping(values))
+    // }
    
 
     console.log(values);
@@ -26,6 +31,7 @@ function Shipping() {
                             onChange={handleChange}
                             placeholder={checkout.shipping.name}
                             className='border outline-none border-gray-400 ' />
+                            {errors.name && <p>{errors.name}</p>}
                     </div>
                     
                     <div className='w-full grid flex-grow gap-y-3'>
@@ -51,7 +57,7 @@ function Shipping() {
                     </div>                    
                 </div>
             </div>
-            <div className='w-full space-x-80 flex justify-between'>
+            <div className='w-full space-x-80 flex justify-between pt-10'>
                   <button onClick={()=>dispatch(setStep('a'))}> <ChevronLeftIcon height={30}/></button>
                   <button onClick={()=>{dispatch(setStep('c')),dispatch(setShipping(values))}}> <ChevronRightIcon height={30}/></button>
               </div>

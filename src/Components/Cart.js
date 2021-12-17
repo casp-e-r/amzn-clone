@@ -29,7 +29,7 @@ function Cart() {
         <div id='cart' className=' w-screen h-30 bg-opacity-0' >
             <div className='z-40 min-h-screen absolute right-0 top-0 left-0' onClick={()=>dispatch(showCart(false))}>   
             </div>  
-            <div  className='fixed w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-2/5'>
+            <div  className='fixed w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-3/5 lg:w-2/5 '>
                 {/* <div className='fixed w-full top-0 bg-gray-900'> */}
                 <button className=' m-2 bg-yellow-300 py-1 px-3 rounded-full' onClick={()=>dispatch(showCart(false))} ><XIcon height={20}/></button>
                 {/* </div> */}
@@ -41,7 +41,7 @@ function Cart() {
                         })}
                     </div>
                     {items.length > 0 &&
-                    <div className='w-full bg-white fixed bottom-0 pb-12 '>
+                    <div className='w-full bg-white fixed bottom-0 pl-10 pb-12 '>
                         <h1>Price</h1>
                         {/* <p>{items.reduce((total, item) => total + item.quantity, 0)}</p> */}
                         <p>{items.reduce((total, item) => total + item.price * item.quantity, 0)}</p>

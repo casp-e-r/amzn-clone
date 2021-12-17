@@ -65,7 +65,7 @@ function Navbar() {
                     </div>
             
                     <div className=' flex  items-center m-3 justify-end ' >
-                        <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-6   text-sm lg:text-base '>{items.length}</span>
+                        <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-9  text-sm lg:text-base '>{items.length}</span>
                         <div className='relative cursor-pointer' onClick={()=>dispatch(showCart(true))}>
                             <ShoppingBagIcon className='h-10 p-2 md:mr-10' />
                         </div>

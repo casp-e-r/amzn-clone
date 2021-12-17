@@ -12,7 +12,7 @@ function Payment() {
             <div className='text-center font-bold mb-4'>
                 <h2>Payment Method</h2>
             </div>
-            <div className='space-y-6 justify-center items-center backdrop-blur-xl'>
+            <div className='space-y-6 justify-center items-center backdrop-blur-xl py-20'>
                 <div className='border rounded  ' onClick={()=>setState(1)} >
                     <div className='bg-yellow-100 px-6 py-4'>
                     <p>Creditcard</p>
