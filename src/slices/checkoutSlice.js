@@ -15,10 +15,10 @@ export const checkoutSlice =createSlice({
             state.shipping=action.payload
         },
         setPayment:(state,action)=>{
-
+            state.payment=action.payload
         },
         setOrder:(state,action)=>{
-
+            state.order=action.payload
         },
         setStep:(state,action)=>{
             state.step=action.payload

@@ -16,18 +16,15 @@ function Shipping() {
         
         if (submitting && Object.keys(errors).length===0) {
                 dispatch(setStep('c')),
-                dispatch(setShipping(values))
+                dispatch(setShipping(values.name,values.email,values.phone,values.address,values.pin))
             }  
     }, [errors,forwardStep])
     const forwardStep=()=>{
-        // handleSubmit
-        // e.preventDefault()
+        // handleSubmit   !!!???!!!1
         setErrors(validateShipping(values))
         setSubmitting(true)
-        console.log(errors);
-        // console.log(Object.keys(errors).length);    
+        console.log(errors);        
     }  
-    
     console.log(errors);
     console.log(values);
     return (

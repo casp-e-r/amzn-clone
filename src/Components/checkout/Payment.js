@@ -1,14 +1,37 @@
 import { ChevronLeftIcon } from '@heroicons/react/outline'
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import  Router  from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import useForm from '../../hooks/useForm'
-import { setStep } from '../../slices/checkoutSlice'
+import { selectItems } from '../../slices/cartSlice'
+import { setOrder, setPayment, setStep } from '../../slices/checkoutSlice'
+import validatePayment from '../../utils/validatePayment'
 
 function Payment() {
     const dispatch = useDispatch()
     const [state, setState] = useState(0)
+    const [errors, setErrors] = useState({})
+    const [submitting, setSubmitting] = useState(false)
+    const cartItems  = useSelector(selectItems)
+    useEffect(() => {
+        if (submitting && Object.keys(errors).length===0 ) {
+            dispatch(setPayment(values.cardno,values.exp,values.cvv))
+            dispatch(setOrder(cartItems))
+            Router.push('/')             
+        }
+    }, [])
     const {handleChange,values}=useForm()
-
+    const PaymentStep=()=>{
+        if (state) {
+            setErrors(validatePayment(values))
+            setSubmitting(true) 
+        }
+        else{
+            dispatch(setPayment('UPI'))
+            dispatch(setOrder(cartItems))
+            Router.push('/') 
+        } 
+    }
     return (
         <div className=''>
             <div className='text-center font-bold mb-4'>
@@ -27,6 +50,7 @@ function Payment() {
                             <input type='text' className='flex flex-grow border text-gray-700' placeholder='Card Number' 
                             onChange={handleChange}
                             value={values.cardno}/>
+                            {errors.cardno && <p>{errors.cardno}</p>}
                         </div>
                         <div className='flex-col flex-grow space-x-20'>
                             <input type='month' className=' w-20 border text-gray-700' placeholder='MM/YY'
@@ -45,7 +69,7 @@ function Payment() {
             </div>
             <div className='w-full space-x-80 flex justify-between pt-10'>
                   <button onClick={()=>dispatch(setStep('b'))}> <ChevronLeftIcon height={30}/></button>
-                  <button className='px-5 py-1 bg-black text-red-50'> confirm</button>
+                  <button className='px-5 py-1 bg-black text-red-50' onClick={PaymentStep}> confirm</button>
             </div>
         </div>
         
