@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 
-const useForm=  (validateShipping)=>{
+const useForm=  ()=>{                                               //(validate)
     const [values, setValues] = useState({
         name:'',
         email:'',
         phone:'',
-        address:''
+        address:'',
+        pin:'',
+        cardno:'',
+        cvv:'',
+        exp:'',
     })
     const [errors, setErrors] = useState({})
     const handleChange=e=>{
@@ -15,12 +19,12 @@ const useForm=  (validateShipping)=>{
             [name]:value
         })
     }
-    const handleSubmit=e=>{
-        e.preventDefault()
-        setErrors(validateShipping(values))
-    }
+    // const handleSubmit=e=>{
+    //     e.preventDefault()
+    //     setErrors(validate(values))
+    // }                                                                  not available inside custom function ????!!!!
     
-    return{handleChange,values,handleSubmit,errors}
+    return{handleChange,values,errors}
 
 }
 export default useForm

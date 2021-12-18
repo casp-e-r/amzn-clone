@@ -1,20 +1,34 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import useForm from '../../hooks/useForm'
 import { checkoutItems, setShipping, setStep } from '../../slices/checkoutSlice';
 import validateShipping from '../../utils/validateShipping';
 
 function Shipping() {
-    const {handleChange,values,setValues,errors}=useForm(validateShipping)
+    const {handleChange,values}=useForm()
+    const [errors, setErrors] = useState({})
+    const [submitting, setSubmitting] = useState(false)
     const dispatch = useDispatch()
     const checkout  = useSelector(checkoutItems)
-    // const forwardStep={
-    //     dispatch(setStep('c')),
-    //     dispatch(setShipping(values))
-    // }
-   
+    useEffect(() => {
 
+        
+        if (submitting && Object.keys(errors).length===0) {
+                dispatch(setStep('c')),
+                dispatch(setShipping(values))
+            }  
+    }, [errors,forwardStep])
+    const forwardStep=()=>{
+        // handleSubmit
+        // e.preventDefault()
+        setErrors(validateShipping(values))
+        setSubmitting(true)
+        console.log(errors);
+        // console.log(Object.keys(errors).length);    
+    }  
+    
+    console.log(errors);
     console.log(values);
     return (
         <div>
@@ -50,16 +64,23 @@ function Shipping() {
 
                     <div className='w-full grid flex-grow gap-y-3'>
                         <label className='text-sm text-gray-600'>Address</label>
-                        <textarea type='text' name='address' value={values.address}
+                        <input type='text' name='address' value={values.address}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-400' />
-                    </div>                            
+                    </div> 
+                    <div className='w-1/3 grid flex-grow gap-y-3'>
+                        <label className='text-sm text-gray-600'>Pincode</label>
+                        <input type='text' name='pin' value={values.pin}
+                            onChange={handleChange} 
+                            className='border outline-none resize-none border-gray-400' />
+                    </div> 
+                                               
                     </div>                    
                 </div>
             </div>
             <div className='w-full space-x-80 flex justify-between pt-10'>
                   <button onClick={()=>dispatch(setStep('a'))}> <ChevronLeftIcon height={30}/></button>
-                  <button onClick={()=>{dispatch(setStep('c')),dispatch(setShipping(values))}}> <ChevronRightIcon height={30}/></button>
+                  <button onClick={forwardStep}> <ChevronRightIcon height={30}/></button>
               </div>
         </div>
     )
