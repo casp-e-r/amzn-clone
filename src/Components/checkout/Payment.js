@@ -12,6 +12,7 @@ function Payment() {
     const [state, setState] = useState(0)
     const [errors, setErrors] = useState({})
     const [submitting, setSubmitting] = useState(false)
+    const {handleChange,values}=useForm()
     const cartItems  = useSelector(selectItems)
     useEffect(() => {
         if (submitting && Object.keys(errors).length===0 ) {
@@ -19,8 +20,8 @@ function Payment() {
             dispatch(setOrder(cartItems))
             Router.push('/')             
         }
-    }, [])
-    const {handleChange,values}=useForm()
+    }, [errors])
+    console.log(Object.keys(errors).length,submitting);
     const PaymentStep=()=>{
         if (state) {
             setErrors(validatePayment(values))
@@ -48,18 +49,27 @@ function Payment() {
                     <div className='px-10 space-y-6 py-10'>
                         <div className='flex flex-grow '>
                             <input type='text' className='flex flex-grow border text-gray-700' placeholder='Card Number' 
+                            name='cardno'
                             onChange={handleChange}
                             value={values.cardno}/>
                             {errors.cardno && <p>{errors.cardno}</p>}
                         </div>
                         <div className='flex-col flex-grow space-x-20'>
                             <input type='month' className=' w-20 border text-gray-700' placeholder='MM/YY'
+                            name='exp'
                             onChange={handleChange}
                             value={values.exp}/>
+                            
+
                             <input type='text' className='w-20 border text-gray-700' placeholder='CVV'
+                            name='cvv'
                             onChange={handleChange}
                             value={values.cvv}/>
+                            
+
                         </div>
+                        {errors.exp && <p>{errors.exp}</p>}
+                        {errors.cvv && <p>{errors.cvv}</p>}
                     </div>:null}
                 </div>
                 <div className={!state ? 'border rounded px-6 py-4 bg-yellow-100':'  border rounded px-6 py-4'} onClick={()=>setState(0)} >

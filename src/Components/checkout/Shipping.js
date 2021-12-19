@@ -50,13 +50,17 @@ function Shipping() {
                         <input type='email' name='email' value={values.email}
                             onChange={handleChange} 
                             className='border outline-none border-gray-400' />
+                            {errors.email && <p>{errors.email}</p>}
+
                     </div>
 
                     <div className='w-full grid flex-grow gap-y-3'>
                         <label className='text-sm text-gray-600'>Phone</label>
-                        <input type='number' name='phone' value={values.phone} 
+                        <input type='text' name='phone' value={values.phone} 
                             onChange={handleChange}
                             className='border outline-none border-gray-400 ' />
+                            {errors.phone && <p>{errors.phone}</p>}
+
                     </div>
 
                     <div className='w-full grid flex-grow gap-y-3'>
@@ -64,12 +68,16 @@ function Shipping() {
                         <input type='text' name='address' value={values.address}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-400' />
+                            {errors.address && <p>{errors.address}</p>}
+
                     </div> 
                     <div className='w-1/3 grid flex-grow gap-y-3'>
                         <label className='text-sm text-gray-600'>Pincode</label>
                         <input type='text' name='pin' value={values.pin}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-400' />
+                            {errors.pin && <p>{errors.pin}</p>}
+
                     </div> 
                                                
                     </div>                    
