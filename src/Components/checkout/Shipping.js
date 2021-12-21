@@ -16,7 +16,11 @@ function Shipping() {
         
         if (submitting && Object.keys(errors).length===0) {
                 dispatch(setStep('c')),
-                dispatch(setShipping(values.name,values.email,values.phone,values.address,values.pin))
+                dispatch(setShipping({name:values.name,
+                    email:values.email,
+                    phone:values.phone,
+                    address:values.address,
+                    pin:values.pin}))
             }  
     }, [errors,forwardStep])
     const forwardStep=()=>{

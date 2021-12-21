@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import useForm from '../../hooks/useForm'
 import { selectItems } from '../../slices/cartSlice'
-import { setOrder, setPayment, setStep } from '../../slices/checkoutSlice'
+import { checkoutItems, setOrder, setPayment, setStep } from '../../slices/checkoutSlice'
 import validatePayment from '../../utils/validatePayment'
 
 function Payment() {
@@ -14,11 +14,18 @@ function Payment() {
     const [submitting, setSubmitting] = useState(false)
     const {handleChange,values}=useForm()
     const cartItems  = useSelector(selectItems)
+    const checkout=useSelector(checkoutItems)
+    console.log(checkout.shipping);
+    let order
     useEffect(() => {
         if (submitting && Object.keys(errors).length===0 ) {
-            dispatch(setPayment(values.cardno,values.exp,values.cvv))
-            dispatch(setOrder(cartItems))
-            Router.push('/')             
+            dispatch(setPayment({cardno:values.cardno,
+                expiryDate:values.exp,
+                CVV:values.cvv})) 
+                order={cart:cartItems,
+                    shipping:checkout.shipping}
+                dispatch(setOrder(order))
+                Router.push('/')             
         }
     }, [errors])
     console.log(Object.keys(errors).length,submitting);
@@ -29,7 +36,9 @@ function Payment() {
         }
         else{
             dispatch(setPayment('UPI'))
-            dispatch(setOrder(cartItems))
+            order={cart:cartItems,
+                shipping:checkout.shipping}
+            dispatch(setOrder(order))
             Router.push('/') 
         } 
     }
