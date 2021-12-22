@@ -30,8 +30,6 @@ function ProductCard({product}) {
     
     const addItemToCart = ()=>{
         const cartProduct= {...product,quantity:1}
-        //console.log('dd');
-        
         //sending to store as action
         dispatch(addToCart(cartProduct))
 

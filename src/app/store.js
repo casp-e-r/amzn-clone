@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../slices/cartSlice";
 import checkoutReducer  from "../slices/checkoutSlice";
 import wishReducer from '../slices/wishSlice'
+
 import {
   persistStore,
   persistReducer,
@@ -19,21 +20,21 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  blacklist:'cart'
 }
+const viewPersistConfig = {
+  key: 'cart',
+  storage: storage,
+  blacklist: ['show']
+};
 const rootReducer=combineReducers({
-  cart: cartReducer,
+  cart: persistReducer(viewPersistConfig, cartReducer),
     wish:wishReducer,
-    checkout:checkoutReducer
+    checkout:checkoutReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-// export const store = configureStore({
-//   reducer: {
-//     cart: cartReducer,
-//     wish:wishReducer,
-//     checkout:checkoutReducer
-//   },
-// });
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
