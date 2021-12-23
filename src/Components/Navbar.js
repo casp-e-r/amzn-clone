@@ -22,8 +22,14 @@ function Navbar() {
         //document.body.style.overflow='hidden'
         document.body.style.scrollMargin='none'
       }
-    })
+    }) 
     
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            dispatch(searchKey(search))
+            Router.push('/search')
+        }
+      }
 
 
 
@@ -40,7 +46,8 @@ function Navbar() {
                     <div className='flex items-center rounded-lg bg-yellow-200 h-8 sm:h-9 mr-1 sm:mr-4'>
                         <input type='text' className='w-3/5 outline-none flex-grow  bg-transparent text-sm p-2 '
                         value={search}
-                        onChange={(e)=>setSearch(e.target.value)}/>
+                        onChange={(e)=>setSearch(e.target.value)}
+                        onKeyDown={handleKeyDown}/>
                         <button
                         onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer' /></button>
                     </div>
