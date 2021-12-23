@@ -23,6 +23,7 @@ function Navbar() {
         document.body.style.scrollMargin='none'
       }
     })
+    
 
 
 
@@ -43,7 +44,6 @@ function Navbar() {
                         <button
                         onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer' /></button>
                     </div>
-                    {console.log(search)}
                 
                     <div className="group inline-block relative items-center  ">
                         <button
