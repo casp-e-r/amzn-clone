@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../slices/cartSlice";
 import checkoutReducer  from "../slices/checkoutSlice";
 import wishReducer from '../slices/wishSlice'
+import searchReducer from '../slices/searchSlice'
 
 import {
   persistStore,
@@ -31,6 +32,7 @@ const rootReducer=combineReducers({
   cart: persistReducer(viewPersistConfig, cartReducer),
     wish:wishReducer,
     checkout:checkoutReducer,
+    search:searchReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

@@ -21,11 +21,11 @@ function ProductCard({product}) {
     //     window.localStorage.setItem('Wshow',JSON.stringify(state))    
     // })
     
-    if(state){
-        dispatch(addToFav(product))
-    }else{
-        dispatch(removeFromFav(product))
-    }
+    // if(state){
+    //     dispatch(addToFav(product))
+    // }else{
+    //     dispatch(removeFromFav(product))
+    // }
     
     
     const addItemToCart = ()=>{
