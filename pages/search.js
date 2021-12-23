@@ -9,22 +9,30 @@ function search({ products }) {
     const [results, setResults] = useState([])
     const search = useSelector(selectSearchItems)
 
-    console.log(search.key);
-    console.log(products);
+    // console.log(search.key);
+    // console.log(products);
     
     useEffect(() => {
+        setResults([])
         products.map(e => {
-            console.log(e.title.includes(search.key))
-            search.key.length >= 2 && e.title.includes(search.key) && setResults([...results, e])
-
+            search.key.length >= 2 && 
+            e.title.toLowerCase().includes(search.key.toLowerCase()) && 
+            setResults(results=>[...results, e])
+            
+            // console.log(e);
         })
     }, [search.key])
-    console.log(results);
+    // console.log(results);
 
     dispatch(searchProducts(results))
+
     return (
         <div>
             <Navbar />
+            <div className='m-10'>
+                <h1>search results for {search.key} </h1>
+                <p>{search.results.length} items</p>
+            </div>
             <SearchProducts/>
 
 
