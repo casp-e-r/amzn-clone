@@ -2,11 +2,11 @@ import React from 'react'
 import { useSelector } from "react-redux"
 
 import WishCard from "./WishCard"
-import { selectItems } from "../slices/wishSlice"
+import { selectWishItems } from "../slices/wishSlice"
 import {HeartIcon as H1} from '@heroicons/react/outline'
 
 function WishList() {
-    const wish = useSelector(selectItems)
+    const wish = useSelector(selectWishItems)
  console.log(wish)
     return (
         <div className='relative py-10  '>

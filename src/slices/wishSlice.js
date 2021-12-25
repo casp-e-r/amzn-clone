@@ -27,6 +27,6 @@ export const wishSlice =createSlice({
 
 export const{addToFav,removeFromFav}=wishSlice.actions
 
-export const selectItems =(state) => state.wish.items
+export const selectWishItems =(state) => state.wish.items
 
 export default wishSlice.reducer;

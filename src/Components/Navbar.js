@@ -29,7 +29,7 @@ function Navbar() {
             dispatch(searchKey(search))
             Router.push('/search')
         }
-      }
+    }
 
 
 

@@ -25,7 +25,7 @@ export default function Home({products,categories}) {
   )
 }
 export async function getStaticProps(context){
-  const products =await fetch('https://fakestoreapi.com/products')
+  const products = await fetch('https://fakestoreapi.com/products')
   .then(res=>res.json())
   const categories =await fetch('https://fakestoreapi.com/products/categories')
   .then(res=>res.json())

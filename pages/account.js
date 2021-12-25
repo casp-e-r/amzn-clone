@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import {  useSession } from 'next-auth/client'
+import Router  from 'next/router'
+import React, { useEffect, useState } from 'react'
 import Footer from '../src/Components/Footer'
 import Navbar from '../src/Components/Navbar'
 import Orders from '../src/Components/Orders'
@@ -8,6 +10,11 @@ import WishList from '../src/Components/WishList'
 
 function account() {
     const [state, setstate] = useState(0)
+    const [session]=useSession()
+    useEffect(() => {
+        !session && Router.push('/')
+    }, [session])
+    console.log(session);
     return (
         <div className=''>
             

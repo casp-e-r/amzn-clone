@@ -25,7 +25,7 @@ function WishCard({product}) {
 
                 
             </div>
-            <p className='text-sm md:text-base cursor-pointer hover:font-medium hover:underline'
+            <p className='text-sm md:text-base cursor-pointer  hover:underline'
                 onClick={()=>Router.push(`/product/${product.id}`)}
                 >    
                 {product.title}</p>
@@ -37,7 +37,7 @@ function WishCard({product}) {
             
             </div>
             <button className=' text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-blue-900 text-white text-center p-2 rounded'
-            >add     
+            >add to cart    
             </button>
         </div>
             
