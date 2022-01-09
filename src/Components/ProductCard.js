@@ -18,12 +18,14 @@ function ProductCard({product}) {
         wishItem.map(e=>{
             if(e.id===product.id){
                 setState(1)
+            }else{
+                setState(0)
             }
         })
     }, [setState,state,wishItem,product])
     useEffect(() => {
-        state && dispatch(addToFav(product))
-        !state && dispatch(removeFromFav(product))
+        state===1 && dispatch(addToFav(product))
+        state===0 && dispatch(removeFromFav(product))
     }, [state,product])
     
     
