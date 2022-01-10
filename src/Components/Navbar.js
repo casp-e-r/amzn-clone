@@ -62,15 +62,15 @@ function Navbar() {
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                             </svg>
                         </button>
-                        <ul className="absolute hidden z-50 bg-yellow-100 pt-1 py-1  group-hover:block">
+                        <ul className="absolute hidden z-50 bg-yellow-200   rounded-md  group-hover:block">
                                 <li className="">
                                 <button
-                                    className=" text-sm  py-2 px-6 block whitespace-nowrap"
+                                    className=" text-sm  py-2 px-6 block whitespace-nowrap hover:bg-yellow-400"
                                     onClick={() => Router.push('/account')}> My account </button>
                                 </li>
                                 <li className="">
                                 <button
-                                    className=" text-sm py-2 px-6 block whitespace-nowrap"
+                                    className=" text-sm py-2 w-full px-6 block whitespace-nowrap hover:bg-yellow-400"
                                     onClick={!session ? ()=>Router.push('/signin') : signOut}
                                     >{session ? 'sign out':'log in'} </button>
                             </li>
@@ -86,7 +86,7 @@ function Navbar() {
                 </div>
 
             </div>
-            {toggle && <Cart  t={toggle}/> }
+            {toggle ? <Cart  t={toggle}/> : null }
         </div>
         
     )

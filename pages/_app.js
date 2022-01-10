@@ -1,4 +1,6 @@
 import 'tailwindcss/tailwind.css'
+import Head from 'next/head'
+
 import '../src/styles/globals.css'
 import { Provider as Authprovider } from "next-auth/client";
 import { Provider } from 'react-redux';
@@ -11,6 +13,9 @@ function MyApp({ Component, pageProps }) {
   <Authprovider session={pageProps.session}>
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
+    <Head>
+        <link rel="icon" href="/amzn.png" />
+      </Head>
     <Component {...pageProps} />
     </PersistGate>
     </Provider>

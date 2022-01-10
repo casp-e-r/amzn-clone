@@ -24,6 +24,7 @@ export const checkoutSlice =createSlice({
         setStep:(state,action)=>{
             state.step=action.payload
         }
+        
     }
 })
 export const {setShipping,setPayment,setOrder,setStep}=checkoutSlice.actions

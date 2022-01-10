@@ -9,8 +9,8 @@ export default function Home({products,categories}) {
   return (
     <div className="">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Amzn Cart</title>
+        <link rel="icon" href="/a.jpeg" />
       </Head>
 
       <Navbar/>

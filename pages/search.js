@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../src/Components/Navbar'
 import SearchProducts from '../src/Components/SearchProducts'
 import { searchProducts, selectSearchItems } from '../src/slices/searchSlice'
+import Head from 'next/head'
 
 function search({ products }) {
     const dispatch = useDispatch()
@@ -28,6 +29,9 @@ function search({ products }) {
 
     return (
         <div>
+            <Head>
+                <title>Search</title>
+            </Head>
             <Navbar />
             <div className='m-10'>
                 <h1>search results for {search.key} </h1>

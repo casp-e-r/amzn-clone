@@ -31,11 +31,14 @@ export const cartSlice =createSlice({
         },
         showCart:(state,action)=>{
             state.show=action.payload
+        },
+        clearCart:(state)=>{
+            state.items=[]
         }
     }
 })
 
-export const {addToCart,removeFromCart,updateQuantity,showCart} =cartSlice.actions
+export const {addToCart,removeFromCart,updateQuantity,showCart,clearCart} =cartSlice.actions
 
 // selectors
 export const selectItems =(state) => state.cart.items

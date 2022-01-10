@@ -41,8 +41,10 @@ function CartProduct({product}) {
                 </div>
             </div>
 
-            <div className='flex flex-col col-span-2 '>
+            <div className='flex flex-col col-span-2 ml-auto '>
                 <div className='flex text-xs justify-center my-2'>
+                <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
+
                     <button
                      onClick={productQuantityDecrement} 
                      className={ product.quantity >1 ?'text-white p-1 mx-3  bg-blue-700 ':'text-white p-1 mx-3  bg-blue-900 cursor-not-allowed' }>-</button>

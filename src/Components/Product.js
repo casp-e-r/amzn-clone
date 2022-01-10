@@ -14,9 +14,11 @@ function Product({product}) {
         items.map(e=>{
             if(e.id===product.id){
                 setState(1)
+            }else{
+                setState(0)
             }
         })
-    }, [setState,items,product])
+    }, [setState,items,product,state])
     console.log(state);
     const dispatch = useDispatch()
     const wishItem = useSelector(selectWishItems)
@@ -39,21 +41,23 @@ function Product({product}) {
     return (
         <div>
             <div className=' m-6 space-y-10 lg:mx-7 xl:mx-20 md:flex md:space-x-10' >
-                <div className='w-full p-9 flex-shrink items-center sm:p-20 lg:w-4/5 xl:w-2/5 md:p-2 md:py-12 '>
-                    <Image src={product.image} height={100} width={100} layout='responsive' className='flex'/>
+                <div className='w-full p-9  items-center sm:p-20  lg:w-4/5 xl:w-2/5 md:p-2 md:py-12  '>
+                    <Image src={product.image} height={'100%'} width={'100%'} layout='responsive' objectFit='contain'  className=' '/>
+                    
                 </div>
-                <H1 className={ !wishstate ? ' text-red-700 cursor-pointer h-3 ' : 'cursor-pointer fill-current text-red-700 h-3'} onClick={()=>setWishstate(!wishstate)}/>
 
-                <div className='space-y-2 px-3'>
+                <div className='w-full md:w-2/4space-y-2 px-3 md:pl-7'>
                     <h1>{product.title}</h1>
                     <p>{product.price}</p>
                     <p>{product.description}</p>
                     <p>{product.rating.rate}</p>
                     <button 
                     onClick={!state ? addItemToCart : ()=>dispatch(showCart(true))}
-                    className='p-2 px-10 text-white bg-yellow-400'
+                    className={`p-2 px-10  rounded-xl ${state? 'text-white bg-black':'text-black bg-yellow-400'}`}
                     >
                     {!state ? 'add':'go to cart'}</button>
+                <H1 className={ !wishstate ? ' text-red-700 cursor-pointer h-3 ' : 'cursor-pointer fill-current text-red-700 h-3'} onClick={()=>setWishstate(!wishstate)}/>
+
                 </div>
 
             </div>

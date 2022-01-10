@@ -10,9 +10,9 @@ function Orders() {
      const checkout = useSelector(checkoutItems)
     console.log(checkout.order);
     return (
-        <div className='py-10'>
+        <div className='pt-5 w-full h-full overflow-hidden '>
             {checkout.order && checkout.order.map(e=>{
-                return <div>
+                return <div className='grid my-2  w-full overflow-hidden'>
                     <OrderCard order={e}/>
                 </div>
             })}

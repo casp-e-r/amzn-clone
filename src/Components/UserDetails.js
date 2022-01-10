@@ -8,8 +8,8 @@ function UserDetails() {
     return (
         <div className='py-10 flex-row '>
             {session && 
-            <>
-            <div className='p-3 '>
+            <> 
+            <div className=' rounded-full border-4 border-yellow-300 w-52 h-52'>
             <Image className='rounded-full ' height={200} width={200} src={session.user.image}/>
             </div>
                 
@@ -17,10 +17,10 @@ function UserDetails() {
 
             
             <p className='text-gray-500 text-sm'>name</p>
-            <h1 className=''>  {session.user.name}</h1>
+            <h1 className='border-b-2 w-full'>  {session.user.name}</h1>
     
             <p className='text-gray-500 text-sm'>email</p>
-            <h1>{session.user.email}</h1>
+            <h1 className='border-b-2 w-full'> {session.user.email}</h1>
             </div>
             </>
             }

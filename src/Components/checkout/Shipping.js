@@ -45,16 +45,16 @@ function Shipping() {
                         <input type='text' name='name' value={values.name} 
                             onChange={handleChange}
                             placeholder={checkout.shipping.name}
-                            className='border outline-none border-gray-400 ' />
-                            {errors.name && <p>{errors.name}</p>}
+                            className='border outline-none border-gray-600 ' />
+                            {errors.name && <p className='text-xs text-red-600'>{errors.name}</p>}
                     </div>
                     
                     <div className='w-full grid flex-grow gap-y-3'>
                         <label className='text-sm text-gray-600'>Email</label>
                         <input type='email' name='email' value={values.email}
                             onChange={handleChange} 
-                            className='border outline-none border-gray-400' />
-                            {errors.email && <p>{errors.email}</p>}
+                            className='border  outline-none border-gray-600' />
+                            {errors.email && <p className='text-xs text-red-600'>{errors.email}</p>}
 
                     </div>
 
@@ -62,8 +62,8 @@ function Shipping() {
                         <label className='text-sm text-gray-600'>Phone</label>
                         <input type='text' name='phone' value={values.phone} 
                             onChange={handleChange}
-                            className='border outline-none border-gray-400 ' />
-                            {errors.phone && <p>{errors.phone}</p>}
+                            className='border outline-none border-gray-700 ' />
+                            {errors.phone && <p className='text-xs text-red-600'>{errors.phone}</p>}
 
                     </div>
 
@@ -71,16 +71,16 @@ function Shipping() {
                         <label className='text-sm text-gray-600'>Address</label>
                         <input type='text' name='address' value={values.address}
                             onChange={handleChange} 
-                            className='border outline-none resize-none border-gray-400' />
-                            {errors.address && <p>{errors.address}</p>}
+                            className='border outline-none resize-none border-gray-600' />
+                            {errors.address && <p className=' text-xs text-red-600'>{errors.address}</p>}
 
                     </div> 
                     <div className='w-1/3 grid flex-grow gap-y-3'>
                         <label className='text-sm text-gray-600'>Pincode</label>
                         <input type='text' name='pin' value={values.pin}
                             onChange={handleChange} 
-                            className='border outline-none resize-none border-gray-400' />
-                            {errors.pin && <p>{errors.pin}</p>}
+                            className='border outline-none resize-none border-gray-600' />
+                            {errors.pin && <p className='text-xs text-red-600'>{errors.pin}</p>}
 
                     </div> 
                                                
