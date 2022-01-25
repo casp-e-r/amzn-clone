@@ -27,7 +27,7 @@ function Cart() {
     
     return (
         <div id='cart' className=' w-screen h-30 bg-opacity-0' >
-            <div className='z-40 min-h-screen absolute right-0 top-0 left-0' onClick={()=>dispatch(showCart(false))}>   
+            <div className='z-40 min-h-screen fixed right-0 top-0 left-0 bg-opacity-10 bg-gray-400 ' onClick={()=>dispatch(showCart(false))}>   
             </div>  
             <div  className='fixed w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-3/5 lg:w-2/5 '>
                 {/* <div className='fixed w-full top-0 bg-gray-900'> */}

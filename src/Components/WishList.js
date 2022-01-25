@@ -20,7 +20,7 @@ function WishList() {
                 :
                 <div>
                 <h1>your wishlist</h1>
-                    <div className='grid grid-flow-col grid-rows-6'>
+                    <div className='grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2'>
 
                     {wish.map(e=>{
                         return(<WishCard product={e}/>)

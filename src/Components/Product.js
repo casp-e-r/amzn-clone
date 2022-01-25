@@ -44,7 +44,7 @@ function Product({product}) {
                 <div className='w-full p-9 relative  items-center sm:p-20  lg:w-4/5 xl:w-2/5 md:p-2 md:py-12  '>
                     <Image src={product.image} height={'100%'} width={'100%'} layout='responsive' objectFit='contain'  className=' '/>
                 <H1 
-                className={`absolute top-3 right-4 cursor-pointer h-7 my-3 text-red-700 transition ease-in duration-1000 ${wishstate && 'fill-current'}`}
+                className={`absolute hover:scale-105  top-3 right-4 cursor-pointer h-10 p-2 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${wishstate && 'fill-current'}`}
                  onClick={()=>setWishstate(!wishstate)}/>
                 </div>
 

@@ -37,19 +37,22 @@ function ProductCard({product}) {
         //sending to store as action
         dispatch(addToCart(cartProduct))
     }
-   console.log(wishItem);
+//    console.log(wishItem);
     return (
         <div className=' relative rounded-lg flex flex-col shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
             
             <div>
             <p className='absolute text-xs top-2 right-2'>{product.category}</p> 
-            {/* <div className='absolute top-4 left-4 p-2 rounded-md  bg-yellow-100'>
+            {/* <div className='absolute top-4 left-4 p-2 rounded-md  bg-yellow-100'
+                 onClick={state ? ()=>{dispatch(removeFromFav(product)),setState(0)}:()=>dispatch(addToFav(product))}
+                 >
             <H1 
-                className={` cursor-pointer h-5 text-red-700 transition ease-in duration-1000 ${state===1 && 'fill-current'}`}
-                 onClick={state ? ()=>{dispatch(removeFromFav(product)),setState(0)}:()=>dispatch(addToFav(product))}/>
+                className={` cursor-pointer h-5 text-red-700  transition ease-in duration-1000 ${state===1 && 'fill-current'}`}
+                 onClick={state ? ()=>{dispatch(removeFromFav(product)),setState(0)}:()=>dispatch(addToFav(product))}
+                 />
             </div> */}
             <H1 
-                className={`absolute top-4 left-4 cursor-pointer h-5 text-red-700 transition ease-in duration-1000 ${state && 'fill-current'}`}
+                className={`absolute hover:scale-105  top-4 left-4 cursor-pointer h-8 p-1 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${state && 'fill-current'}`}
                  onClick={state ? ()=>{dispatch(removeFromFav(product)),setState(0)}:()=>{setState(1),dispatch(addToFav(product))}}/>
             <div className='relative text-center mt-1'>
                 
@@ -64,9 +67,9 @@ function ProductCard({product}) {
             <p className='text-sm md:text-base '>{product.price}</p>
             
             </div>
-            <button className=' text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-transparent hover:bg-blue-900 text-white text-center p-2 rounded'
+            <button className='group text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-transparent hover:bg-blue-900 text-white text-center p-2 rounded'
             onClick={addItemToCart}>
-                add  to    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            add to     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2 text-yellow-400  group-hover:scale-110 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
             </button>
