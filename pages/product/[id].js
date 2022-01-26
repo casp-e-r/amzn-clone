@@ -2,6 +2,7 @@ import React from 'react'
 import Product from '../../src/Components/Product'
 import Navbar from '../../src/Components/Navbar'
 import Footer from '../../src/Components/Footer'
+import { ToastContainer } from 'react-toastify'
 
 function  detail({product}) {
     
@@ -12,6 +13,17 @@ function  detail({product}) {
                 <Product product={product} />
 
             </div>
+            <ToastContainer
+            position="top-center"
+            autoClose={4000}
+            hideProgressBar
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHove
+            />
             <Footer/>
         </div>
     )

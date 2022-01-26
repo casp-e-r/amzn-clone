@@ -1,5 +1,10 @@
 import 'tailwindcss/tailwind.css'
 import Head from 'next/head'
+import '../src/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css'
+;
+
+
 
 import '../src/styles/globals.css'
 import { Provider as Authprovider } from "next-auth/client";

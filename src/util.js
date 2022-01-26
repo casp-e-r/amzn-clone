@@ -11,3 +11,4 @@ const shuffleArray = (array) => {
   export {
       shuffleArray
   }
+  export const options={red:"bg-red-100",add:"bg-green-100"}

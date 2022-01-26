@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import  {addToCart } from '../slices/cartSlice'
 import {HeartIcon as H1} from '@heroicons/react/outline'
 import { addToFav, removeFromFav, selectWishItems } from '../slices/wishSlice';
+import { toast, ToastContainer } from 'react-toastify';
+import { css } from 'glamor'
 
 
 
@@ -25,17 +27,17 @@ function ProductCard({product}) {
             //     setState(false)
             // }
         })
-    }, [setState,state,wishItem,product])
+    }, [])
     // useEffect(() => {
     //     state===1 && dispatch(addToFav(product))
     //     state===0 && dispatch(removeFromFav(product))
     // }, [state,product])
     
-    
-    const addItemToCart = ()=>{
+    const addItemToCart =  ()=>{
         const cartProduct= {...product,quantity:1}
         //sending to store as action
-        dispatch(addToCart(cartProduct))
+         dispatch(addToCart(cartProduct))
+        toast('added to cart',{style:{backgroundColor: 'rgb(179, 208, 245)',border:"1px rgb(0,45,179) solid",borderRadius:'10px',boxShadow:'20px'}})
     }
 //    console.log(wishItem);
     return (
@@ -73,6 +75,7 @@ function ProductCard({product}) {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
             </button>
+            
         </div>
     )
 }

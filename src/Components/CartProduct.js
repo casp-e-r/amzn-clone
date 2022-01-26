@@ -5,12 +5,17 @@ import { removeFromCart, showCart, updateQuantity } from '../slices/cartSlice'
 import { MenuAlt1Icon } from '@heroicons/react/outline'
 import  Router  from 'next/router'
 import { PlusIcon, MinusIcon, TrashIcon, } from '@heroicons/react/solid'
+import { ToastContainer, toast } from 'react-toastify'
+
+;
+
 
 
 function CartProduct({product}) { 
     const dispatch = useDispatch()
     const removeItemFromCart=()=>{
         dispatch(removeFromCart(product))
+        toast.error(`${product.title} removed from cart`)
     }
     const productQuantityIncrement=()=>{ 
         let count=product.quantity+1
@@ -22,11 +27,12 @@ function CartProduct({product}) {
             let count=product.quantity-1
             let updatedProduct={...product, quantity:count}
             dispatch(updateQuantity(updatedProduct))
+            
         }
         
     }
     return (
-        <div className='w-full  flex col-span-5 m-2 mx-3 my-4 gap-x-6'>
+        <div className='w-full  flex col-span-5 m-2  my-4 gap-x-6'>
             <div className='mx-4 p-2'>
                 <Image width={80} height={80} src={product.image} layout='fixed' objectFit='contain' />
             </div>
@@ -53,10 +59,10 @@ function CartProduct({product}) {
                      onClick={productQuantityIncrement}  
                      className={ product.quantity < 5  ?'text-white p-1 mx-3  bg-blue-700 ':'text-white p-1 mx-3  bg-blue-900 cursor-not-allowed' }>+</button>
                 </div>
-                <button className='text-xs text-white bg-blue-700 text center ' onClick={removeItemFromCart}><TrashIcon className='h-3'/></button>
+                <button className='text-xs text-white bg-blue-700 text center ' onClick={()=>removeItemFromCart()}><TrashIcon className='h-3'/></button>
 
             </div>
-
+            
             
         </div>
     )

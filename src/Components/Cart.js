@@ -26,19 +26,22 @@ function Cart() {
 
     
     return (
-        <div id='cart' className=' w-screen h-30 bg-opacity-0' >
+        <div id='cart' className={` w-screen fixed top-0  h-screen bg-opacity-0 ${toggle ? "translate-x-0" : "translate-x-full"}`} >
             <div className='z-40 min-h-screen fixed right-0 top-0 left-0 bg-opacity-10 bg-gray-400 ' onClick={()=>dispatch(showCart(false))}>   
             </div>  
-            <div  className='fixed w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-3/5 lg:w-2/5 '>
-                {/* <div className='fixed w-full top-0 bg-gray-900'> */}
+            <div  className={`fixed w-full  min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-y-scroll overflow-x-hidden bg-white md:w-3/5 lg:w-2/5 transition-all ease-in-out duration-1000 ${toggle ? "translate-x-0" : "translate-x-full"} `}>
+                <div className='h-screen'>
                 <button className=' m-2 bg-yellow-300 py-1 px-3 rounded-full' onClick={()=>dispatch(showCart(false))} ><XIcon height={20}/></button>
-                {/* </div> */}
-                <div className=' m-1 md:m-3 lg:mx-6 grid relative  '>
-                    <div className='w-full p-2'>
+                
+                <div className='pr-3 md:m-3 lg:mx-6 grid relative  '>
                         <h1>{items.length === 0 ? 'Cart is empty' : 'Your Cart'}</h1>
+                    <div className='w-min mx-auto sm:w-full sm:mx-0 p-2'>
+                        <div className='overflow-y-scroll'>
+
                         {items.map((item, i) => {
-                          return (<CartProduct product={item} />)
+                            return (<CartProduct product={item} />)
                         })}
+                        </div>
                     </div>
                     {items.length > 0 &&
                     <div className='w-full bg-white fixed bottom-0 pl-10 pb-12 '>
@@ -53,6 +56,8 @@ function Cart() {
                     </div>
                     }
                 </div>
+                </div>
+
             </div>
         </div>
     )

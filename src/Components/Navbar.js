@@ -32,9 +32,8 @@ function Navbar() {
     }
 
 
-
     return (
-        <div className=' relative  top-0 z-50'>
+        <div className=' relative  top-0 z-50 '>
             <div className='flex items-center lg:space-x-12 '>
 
                 <div className='mx-1 md:mr-20 md:ml-10'>
@@ -42,7 +41,6 @@ function Navbar() {
                 </div>
 
                 <div className='flex flex-grow justify-end items-center md:space-x-8'>
-               
                     <div className='flex items-center rounded-lg bg-yellow-200 h-8 sm:h-9 mr-1 sm:mr-4'>
                         <input type='text' className='w-3/5 outline-none flex-grow  bg-transparent text-sm p-2 '
                         value={search}
@@ -50,8 +48,7 @@ function Navbar() {
                         onKeyDown={handleKeyDown}/>
                         <button
                         onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer' /></button>
-                    </div>
-                
+                    </div>                
                     <div className="group inline-block relative items-center  ">
                         <button
                             className="  font-semibold py-1 px-1 rounded inline-flex items-center">
@@ -63,16 +60,16 @@ function Navbar() {
                             </svg>
                         </button>
                         <ul className="absolute hidden z-50 bg-yellow-200   rounded-md  group-hover:block">
-                                <li className="">
+                            <li className="">
                                 <button
                                     className=" text-sm  py-2 px-6 block whitespace-nowrap hover:bg-yellow-400"
                                     onClick={() => Router.push('/account')}> My account </button>
-                                </li>
-                                <li className="">
+                            </li>
+                            <li className="">
                                 <button
                                     className=" text-sm py-2 w-full px-6 block whitespace-nowrap hover:bg-yellow-400"
                                     onClick={!session ? ()=>Router.push('/signin') : signOut}
-                                    >{session ? 'sign out':'log in'} </button>
+                                >{session ? 'sign out':'log in'} </button>
                             </li>
                         </ul>
                     </div>
@@ -86,7 +83,17 @@ function Navbar() {
                 </div>
 
             </div>
-            {toggle ? <Cart  t={toggle}/> : null }
+            {/* <div className={`absolute top-0  ease-in-out transition-all duration-1000 ${toggle ? "translate-x-0 ":"translate-x-full "}`}>
+                <div id='cart' className={`w-screen  absolute top-0  ease-in-out transition-all duration-1000 ${toggle ? "translate-x-0 ":"translate-x-full "}  ${!toggle ?"hidden":'block'} `} >
+                    <div className='z-40 min-h-screen fixed right-0 top-0 left-0  ' onClick={()=>dispatch(showCart(false))}>   
+                    </div> 
+                    <div  className={`fixed w-full min-h-screen  float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-3/5 lg:w-2/5 transition-all ease-in-out duration-1000 ${toggle ? "translate-x-0" : "translate-x-full "} `}>
+                    <Cart t={toggle}/>
+                    </div>
+                </div> 
+            </div> */}
+            {/* {toggle ? <Cart  t={toggle}/> : null } */}
+            <Cart/>
         </div>
         
     )

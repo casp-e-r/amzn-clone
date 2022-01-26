@@ -6,6 +6,7 @@ import {HeartIcon as H1} from '@heroicons/react/outline'
 
 import { addToCart, selectItems, showCart } from "../slices/cartSlice";
 import {addToFav, removeFromFav, selectWishItems} from '../slices/wishSlice'
+import { toast } from "react-toastify";
 function Product({product}) {
     const [state, setState] = useState(0)
     const [wishstate, setWishstate] = useState(0)
@@ -26,6 +27,7 @@ function Product({product}) {
         const cartProduct= {...product,quantity:1}
         //sending to store as action
         dispatch(addToCart(cartProduct))
+        toast('added to cart')
     }
     useEffect(() => {
         wishItem.map(e=>{

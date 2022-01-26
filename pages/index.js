@@ -1,13 +1,17 @@
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
 import Banner from '../src/Components/Banner'
 import Feed from '../src/Components/Feed'
 import Footer from '../src/Components/Footer'
 import Navbar from '../src/Components/Navbar'
+import options from '../src/util';
+;
+
 
 export default function Home({products,categories}) {
  
   return (
-    <div className="">
+    <div className=" overflow-x-hidden">
       <Head>
         <title>Amzn Cart</title>
         <link rel="icon" href="/a.jpeg" />
@@ -17,6 +21,19 @@ export default function Home({products,categories}) {
       <main className='justify-center lg:px-20 mt-16    '>
       <Banner/>
       <Feed products={products} categories={categories}/>
+      <ToastContainer 
+      
+      position="top-center"
+      autoClose={4000}
+      hideProgressBar
+      newestOnTop
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHove
+      
+      />
       
       </main>
       <Footer/>
