@@ -23,6 +23,7 @@ function account() {
 
             <Head>
                 <title>Account</title>
+                <link rel="icon" href="/a.jpeg" />
             </Head>
 
 

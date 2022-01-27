@@ -4,6 +4,7 @@ import Navbar from '../src/Components/Navbar'
 import SearchProducts from '../src/Components/SearchProducts'
 import { searchProducts, selectSearchItems } from '../src/slices/searchSlice'
 import Head from 'next/head'
+import { EmojiSadIcon } from '@heroicons/react/outline'
 
 function search({ products }) {
     const dispatch = useDispatch()
@@ -31,11 +32,20 @@ function search({ products }) {
         <div>
             <Head>
                 <title>Search</title>
+                <link rel="icon" href="/a.jpeg" />
+
             </Head>
             <Navbar />
             <div className='m-10'>
-                <h1>search results for {search.key} </h1>
+                <h1 className='mx-auto flex '>search results for<p className='font-bold ml-3'>' {search.key} '</p>  </h1>
+                {search.results.length===0 ? 
+                <div className='text-center justify-center mt-10 flex font-semibold'>
+                   No Results <EmojiSadIcon className='h-7 ml-3 animate-bounce '/>
+                </div> 
+                : 
+                <div className=''>
                 <p>{search.results.length} items</p>
+                </div>}
             </div>
             <SearchProducts/>
 

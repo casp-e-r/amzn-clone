@@ -8,7 +8,7 @@ function Feed({ products,categories }) {
     const SProducts= shuffleArray(products)
     
     return (
-        <div className='  lg:mx-17 xl:mx-28 md:mt-12 '>
+        <div className='  lg:mx-17 xl:mx-28 md:mt-12 mb-24'>
             {/* <div className=' text-sm rounded-md bg-yellow-300 m-1 lg:m-8 justify-between flex p-3 md:px-20 '> */}
             <div className='text-white bg-blue-700 text-xs rounded-md bg-tranparent m-1 lg:m-8 justify-between flex p-1  lg:px-10 xl:px-20 ' >
                 <button 

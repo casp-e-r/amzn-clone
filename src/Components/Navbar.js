@@ -47,7 +47,7 @@ function Navbar() {
                         onChange={(e)=>setSearch(e.target.value)}
                         onKeyDown={handleKeyDown}/>
                         <button
-                        onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer' /></button>
+                        onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer rounded-3xl hover:bg-yellow-500 hover:bg-opacity-30 duration-300' /></button>
                     </div>                
                     <div className="group inline-block relative items-center  ">
                         <button

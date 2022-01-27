@@ -3,7 +3,8 @@ import { useSelector } from "react-redux"
 
 import WishCard from "./WishCard"
 import { selectWishItems } from "../slices/wishSlice"
-import {HeartIcon as H1} from '@heroicons/react/outline'
+import { ExclamationCircleIcon } from '@heroicons/react/outline'
+
 
 function WishList() {
     const wish = useSelector(selectWishItems)
@@ -13,9 +14,10 @@ function WishList() {
             
             <div className='flex  '>
             {wish.length===0 ? 
-                <div className='w-full text-center m-auto justify-center'>
-                    <h1 className=' font-extrabold '>your wishlist is empty</h1>
-                    <h2 className='flex items-center'>use <H1 className='h-3 text-red-700 fill-current'/> to wishlist</h2>
+                <div className='w-full  mx-20 content-center justify-center'>
+                    <h1 className=' font-extrabold flex text-center '><ExclamationCircleIcon className='h-5 mr-3'/>Your wishlist is empty!!</h1>
+                    <p className='text-gray-600 py-1 font-light'>Tap heart icon to start saving your favourite items</p>
+                    
                 </div>
                 :
                 <div>

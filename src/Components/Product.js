@@ -2,7 +2,7 @@ import Image from "next/dist/client/image";
 import React, { useEffect, useState } from "react";
 import  Router from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import {HeartIcon as H1} from '@heroicons/react/outline'
+import {HeartIcon as H1, ShoppingBagIcon} from '@heroicons/react/outline'
 
 import { addToCart, selectItems, showCart } from "../slices/cartSlice";
 import {addToFav, removeFromFav, selectWishItems} from '../slices/wishSlice'
@@ -20,14 +20,14 @@ function Product({product}) {
             }
         })
     }, [setState,items,product,state])
-    console.log(state);
     const dispatch = useDispatch()
     const wishItem = useSelector(selectWishItems)
     const addItemToCart = ()=>{
         const cartProduct= {...product,quantity:1}
         //sending to store as action
         dispatch(addToCart(cartProduct))
-        toast('added to cart')
+        toast(<div className=" text-blue-900 flex justify-center">added to cart <ShoppingBagIcon  className="text-blue-700 ml-5 h-6" /></div>,{style:{borderRadius:'10px',boxShadow:'500px'}})
+
     }
     useEffect(() => {
         wishItem.map(e=>{
@@ -46,22 +46,21 @@ function Product({product}) {
                 <div className='w-full p-9 relative  items-center sm:p-20  lg:w-4/5 xl:w-2/5 md:p-2 md:py-12  '>
                     <Image src={product.image} height={'100%'} width={'100%'} layout='responsive' objectFit='contain'  className=' '/>
                 <H1 
-                className={`absolute hover:scale-105  top-3 right-4 cursor-pointer h-10 p-2 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${wishstate && 'fill-current'}`}
+                className={`absolute hover:scale-125 lg:hover:scale-150  top-3 right-4 cursor-pointer h-10 p-2 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${wishstate && 'fill-current'}`}
                  onClick={()=>setWishstate(!wishstate)}/>
                 </div>
 
                 <div className='w-full md:w-2/4space-y-2 px-3 md:pl-7'>
-                    <h1 >{product.title}</h1>
-                    <p>{product.price}</p>
-                    <p>{product.category}</p>
-                    <p>{product.description}</p>
+                    <h1 className=" font-extrabold text-lg py-2" >{product.title}</h1>
+                    <p className=" font-medium">{product.price}</p>
+                    <p className=" text-lg font-light py-2 " >{product.category}</p>
+                    <p className=" font-normal">{product.description}</p>
                     <p>{product.rating.rate}</p>
                     <button 
                     onClick={!state ? addItemToCart : ()=>dispatch(showCart(true))}
-                    className={`p-2 px-10  rounded-xl ${state? 'text-white bg-black':'text-black bg-yellow-400'}`}
-
+                    className={`p-2 px-10 mt-12 md:mt-16 rounded-xl transition-all ease-in-out duration-700 ${state? 'text-white bg-black':'text-black bg-yellow-400'}`}
                     >
-                    {!state ? 'add':'go to cart'}</button>
+                    {!state ? 'Add to cart':'Go to cart'}</button>
 
                 </div>
 

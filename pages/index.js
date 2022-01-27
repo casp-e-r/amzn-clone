@@ -1,14 +1,32 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import Confetti from 'react-confetti'
+import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import Banner from '../src/Components/Banner'
 import Feed from '../src/Components/Feed'
 import Footer from '../src/Components/Footer'
 import Navbar from '../src/Components/Navbar'
-import options from '../src/util';
-;
+import { checkoutItems } from '../src/slices/checkoutSlice'
+
+
 
 
 export default function Home({products,categories}) {
+
+  const [state, setState] = useState(false);
+  const checkout = useSelector(checkoutItems)
+  
+  useEffect(() => {
+    setState(true)
+    setTimeout(() => {
+      setState(false)
+      
+    }, 3000);
+    
+  }, [checkout.length]);
+
+  
  
   return (
     <div className=" overflow-x-hidden">
@@ -18,9 +36,11 @@ export default function Home({products,categories}) {
       </Head>
 
       <Navbar/>
-      <main className='justify-center lg:px-20 mt-16    '>
+      <main className='justify-center h-auto  lg:px-20 mt-16    '>
       <Banner/>
       <Feed products={products} categories={categories}/>
+      {/* {state && <Confetti tweenDuration={2000} recycle={false}/>  }      */}
+
       <ToastContainer 
       
       position="top-center"

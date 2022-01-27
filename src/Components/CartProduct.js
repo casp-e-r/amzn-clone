@@ -15,12 +15,17 @@ function CartProduct({product}) {
     const dispatch = useDispatch()
     const removeItemFromCart=()=>{
         dispatch(removeFromCart(product))
-        toast.error(`${product.title} removed from cart`)
+        toast(<div className=" text-red-900 flex justify-center"><TrashIcon  className="text-red-700 mr-5 h-6" />Removed from cart </div>,{style:{borderRadius:'10px'}})
+
     }
     const productQuantityIncrement=()=>{ 
+        if (product.quantity < 5) {
+            
+        
         let count=product.quantity+1
         let updatedProduct={...product, quantity:count}
         dispatch(updateQuantity(updatedProduct))
+        }
     }
     const productQuantityDecrement=()=>{
         if(product.quantity!=1){
@@ -32,34 +37,36 @@ function CartProduct({product}) {
         
     }
     return (
-        <div className='w-full  flex col-span-5 m-2  my-4 gap-x-6'>
-            <div className='mx-4 p-2'>
+        <div className='w-full  flex col-span-5  my-4 gap-x-3 md:gap-x-6'>
+            <div className='p-2'>
                 <Image width={80} height={80} src={product.image} layout='fixed' objectFit='contain' />
             </div>
             
             <div className='text-sm md:text-base col-span-2 mx-1 space-y-2'>
-                <p className='hover:cursor-pointer border-b' onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>{product.title}</p>
-                <p>{product.category}</p>
-                {/* <p className='text-xs my-2 '>{product.description}</p> */}
+                <p className='hover:cursor-pointer font-normal' onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>{product.title}</p>
+                <p className='font-light'>{product.category}</p>
                 <div className='flex space-x-2'>
-                <p className='text-sm'>{product.quantity} x {product.price}</p>
-                <p>{product.quantity*product.price}</p>
+                <p className='text-sm font-light'>{product.quantity} x {product.price} </p>
+                <p className='font-medium pl-5'>{product.quantity*product.price}</p>
                 </div>
             </div>
 
             <div className='flex flex-col col-span-2 ml-auto '>
                 <div className='flex text-xs justify-center my-2'>
-                <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
 
                     <button
                      onClick={productQuantityDecrement} 
-                     className={ product.quantity >1 ?'text-white p-1 mx-3  bg-blue-700 ':'text-white p-1 mx-3  bg-blue-900 cursor-not-allowed' }>-</button>
-                    <span>{product.quantity}</span>
-                    <button
-                     onClick={productQuantityIncrement}  
-                     className={ product.quantity < 5  ?'text-white p-1 mx-3  bg-blue-700 ':'text-white p-1 mx-3  bg-blue-900 cursor-not-allowed' }>+</button>
+                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900 transition-all duration-300 ease-in-out ${product.quantity <= 1 && "cursor-not-allowed hover:bg-white bg-white"}`}>
+                     <MinusIcon className='h-3'/>
+                     </button>
+                    <span className=' text-base'>{product.quantity}</span>
+                    <button onClick={productQuantityIncrement}  
+                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900  duration-300 ease-in-out  ${product.quantity === 5 && "cursor-not-allowed hover:bg-white bg-white"}`}>
+                     <PlusIcon className='h-3'/></button>
+                    
                 </div>
-                <button className='text-xs text-white bg-blue-700 text center ' onClick={()=>removeItemFromCart()}><TrashIcon className='h-3'/></button>
+                <button className='text-xs text-red-700 border border-red-700 rounded hover:bg-red-700 hover:text-white transition-all duration-300 ease-in-out bg-white flex justify-center py-1 -px-3 ' 
+                    onClick={()=>removeItemFromCart()}><TrashIcon className='h-3'/></button>
 
             </div>
             

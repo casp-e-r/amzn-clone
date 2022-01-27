@@ -3,13 +3,19 @@ import Product from '../../src/Components/Product'
 import Navbar from '../../src/Components/Navbar'
 import Footer from '../../src/Components/Footer'
 import { ToastContainer } from 'react-toastify'
+import Head from 'next/head'
 
 function  detail({product}) {
     
     return (
         <div className=' h-screen justify-between'>
+            <Head>
+                <title>{product.title}t</title>
+                <link rel="icon" href="/a.jpeg" />
+            </Head>
+
             <Navbar/>
-            <div className='h-auto mt-16'>
+            <div className=' mt-16 pb-auto'>
                 <Product product={product} />
 
             </div>

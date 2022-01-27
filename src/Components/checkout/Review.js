@@ -4,6 +4,7 @@ import { removeFromCart, selectItems, updateQuantity } from '../../slices/cartSl
 import Image from 'next/image'
 import { PlusIcon, MinusIcon, TrashIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { setStep } from '../../slices/checkoutSlice'
+import { toast } from 'react-toastify'
 
 
 
@@ -13,6 +14,8 @@ function Review() {
    
     const removeItemFromCart=(product)=>{
         dispatch(removeFromCart(product))
+        toast(<div className=" text-red-900 flex justify-center"><TrashIcon  className="text-red-700 mr-5 h-6" />Removed from cart </div>,{style:{borderRadius:'10px'}})
+
    }
     const productQuantityIncrement=(product)=>{ 
         let count=product.quantity+1
@@ -38,16 +41,16 @@ function Review() {
                     return(
                     <div className='justify-center flex  items-center'>
                         <div className='flex flex-col gap-y-3 px-3'>
-                            <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
-                            <button className='px-2 py-3 bg-gray-500 text-white rounded-sm ' onClick={()=>productQuantityDecrement(e)}><MinusIcon className='h-3'/></button>
+                            <button className='px-3 py-2  text-blue-700 border hover:bg-yellow-300 border-blue-900 rounded-full ease-in-out duration-500  ' onClick={()=>productQuantityIncrement(e)}><PlusIcon className='h-3'/></button>
+                            <button className='px-3 py-2  text-blue-700 border hover:bg-yellow-300  border-blue-900 rounded-full ease-in-out duration-500 ' onClick={()=>productQuantityDecrement(e)}><MinusIcon className='h-3'/></button>
                         </div>
                         <div className=' justify-around '>
                         <Image height={60} width={60} layout='fixed' objectFit='contain' src={e.image}/>
                         </div>
                         <div className=' text-sm p-4 max-w-xs flex-grow ' >
-                            <h1>{e.title}</h1>
+                            <h1 className='font-bold'>{e.title}</h1>
                             <p>{e.category}</p>
-                            <p>{e.quantity}</p>
+                            <p className='font-light'>quantity:{e.quantity}</p>
                         </div>
                         <div className='float-right w-14'>
                             <h1>{e.quantity*e.price}</h1>
@@ -59,7 +62,7 @@ function Review() {
                 })}
                 <div>
                 <div className='w-full space-x-80 flex justify-end pt-10'>
-                   {/* <button className='hidden' > <ChevronLeftIcon height={30}/></button> */}
+                   
                    <button onClick={()=>dispatch(setStep('b'))}> <ChevronRightIcon height={30}/></button>
                 </div>
                 </div>
