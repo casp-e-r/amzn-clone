@@ -22,7 +22,6 @@ function ProductCard({product}) {
         wishItem.map(e=>{
             if(e.id===product.id){
                 setState(true)
-                console.log(e.title,'......',product.title,state);
             }
         })
     }, [])
@@ -59,7 +58,7 @@ function ProductCard({product}) {
                 
             </div>
             <p className='text-sm md:text-base cursor-pointer hover:font-medium'
-                onClick={()=>Router.push(`/product/${product.id}`)}>{product.title}</p>
+                onClick={()=>Router.push(`/product/${product.id}`)}>{product.title.slice(0,40)}...</p>
             <p className='text-sm md:text-base '>{product.price}</p>
             
             </div>

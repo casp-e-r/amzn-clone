@@ -33,23 +33,23 @@ function checkout(){
         <div className='mx-1 md:ml-10 mb-7'>
                    <Image src='/amzn.png' width={100} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
         </div>
-        <div className='flex flex-col justify-center items-center '> 
+        <div className='flex flex-col justify-center items-center mx-1 '> 
                  
             <div className=' mb-10 mx-auto flex space-x-20 md:space-x-48 '> 
                 <div className='flex flex-col justify-center items-center'>
                     <div className={`text-xs md:text-base rounded-full md:h-10 md:w-10 flex justify-center bg-yellow-400 items-center  duration-300 ease-in ${step==='a'? ' h-7 w-7 bg-opacity-100 ':' h-6 w-6 bg-opacity-50 '}`}>1</div>
-                    <p className={`py-2 text-xs text-gray-500 duration-300 ${step==='a' && "text-black text-sm font-medium"}`}>order summary</p>
+                    <p className={`py-2 text-xs text-center text-gray-500 duration-300 ${step==='a' && "text-black text-sm font-medium"}`}>order summary</p>
                 </div>
                 <div className='flex flex-col justify-center items-center'>
                     <div className={`text-xs md:text-base rounded-full md:h-10 md:w-10 flex justify-center bg-yellow-400 items-center  duration-300 ease-in ${step==='b'? ' h-7 w-7 bg-opacity-100 ':' h-6 w-6 bg-opacity-50 '}`}>2</div>
-                    <p className={`py-2 text-xs text-gray-500 duration-300 ${step==='b' && "text-black text-sm font-medium"}`}>shipping details</p>
+                    <p className={`py-2 text-xs text-center text-gray-500 duration-300 ${step==='b' && "text-black text-sm font-medium"}`}>shipping details</p>
                 </div>
                 <div className='flex flex-col justify-center items-center'>
                     <div className={`text-xs md:text-base rounded-full md:h-10 md:w-10 flex justify-center bg-yellow-400 items-center  duration-300 ease-in ${step==='c'? ' h-7 w-7 bg-opacity-100 ':' h-6 w-6 bg-opacity-50 '}`}>3</div>
-                    <p className={`py-2 text-xs text-gray-500 duration-300 ${step==='c' && "text-black text-sm font-medium"}`}>payment</p>
+                    <p className={`py-2 text-xs text-center text-gray-500 duration-300 ${step==='c' && "text-black text-sm font-medium"}`}>payment</p>
                 </div>     
             </div>
-            <div className=' md:w-1/2  '>
+            <div className='w-full md:w-1/2  '>
                 {step==='a' ? <Review /> : step==='b' ? <Shipping/> :step==='c'? <Payment/>:null}
             </div>
             <div className='flex float-right space-x-4 mb-4   '>

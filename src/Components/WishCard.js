@@ -29,7 +29,7 @@ function WishCard({product}) {
                 
             </div>
             <p className='text-sm md:text-base cursor-pointer py-1 h-14  hover:font-medium  '
-                onClick={()=>Router.push(`/product/${product.id}`)}>{product.title}</p>
+                onClick={()=>Router.push(`/product/${product.id}`)}>{product.title.slice(0,40)}...</p>
             <p>{product.price}</p>
             {/* <p className='absolute text-xs  top-1 right-1 '>{product.category}</p>  */}
             

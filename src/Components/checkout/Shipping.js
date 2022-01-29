@@ -27,16 +27,23 @@ function Shipping() {
         // handleSubmit   !!!???!!!1
         setErrors(validateShipping(values))
         setSubmitting(true)
-        console.log(errors);        
+        // console.log(errors);        
     }  
-    console.log(errors);
-    console.log(values);
+    const handleDummy=()=>{
+        dispatch(setShipping({name:'example',
+            email:'example@example.com',
+            phone:9876543210,
+            address:'example address',
+            pin:11111}))
+        dispatch(setStep('c'))
+    
+    }
     return (
         <div>
             <div className='text-center font-bold mb-4'>
                 <h2>Shipping Details</h2>
             </div>
-            <div>
+            <div className='px-5 sm:p-0 '>
                 <div className='flex' >
                     <div className='grid gap-y-4  flex-grow '>
                     
@@ -44,9 +51,8 @@ function Shipping() {
                         <label className='text-sm text-gray-600'>Name</label>
                         <input type='text' name='name' value={values.name} 
                             onChange={handleChange}
-                            placeholder={checkout.shipping.name}
                             className='border outline-none border-gray-600 ' />
-                            {errors.name && <p className='text-xs text-red-600'>{errors.name}</p>}
+                            {errors.name && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.name}</p>}
                     </div>
                     
                     <div className='w-full grid flex-grow gap-y-3'>
@@ -54,7 +60,7 @@ function Shipping() {
                         <input type='email' name='email' value={values.email}
                             onChange={handleChange} 
                             className='border  outline-none border-gray-600' />
-                            {errors.email && <p className='text-xs text-red-600'>{errors.email}</p>}
+                            {errors.email && <p className=' duration-500 ease-in-out text-xs text-red-600'>{errors.email}</p>}
 
                     </div>
 
@@ -63,7 +69,7 @@ function Shipping() {
                         <input type='text' name='phone' value={values.phone} 
                             onChange={handleChange}
                             className='border outline-none border-gray-700 ' />
-                            {errors.phone && <p className='text-xs text-red-600'>{errors.phone}</p>}
+                            {errors.phone && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.phone}</p>}
 
                     </div>
 
@@ -72,7 +78,7 @@ function Shipping() {
                         <input type='text' name='address' value={values.address}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-600' />
-                            {errors.address && <p className=' text-xs text-red-600'>{errors.address}</p>}
+                            {errors.address && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.address}</p>}
 
                     </div> 
                     <div className='w-1/3 grid flex-grow gap-y-3'>
@@ -80,16 +86,24 @@ function Shipping() {
                         <input type='text' name='pin' value={values.pin}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-600' />
-                            {errors.pin && <p className='text-xs text-red-600'>{errors.pin}</p>}
+                            {errors.pin && <p className='text-xs duration-500 ease-in-out text-red-600'>{errors.pin}</p>}
 
                     </div> 
                                                
                     </div>                    
                 </div>
             </div>
-            <div className='w-full space-x-80 flex justify-between pt-10'>
-                  <button onClick={()=>dispatch(setStep('a'))}> <ChevronLeftIcon height={30}/></button>
-                  <button onClick={forwardStep}> <ChevronRightIcon height={30}/></button>
+            <div className='py-2 text-center'>
+                <button className='px-5 py-1 bg-gray-400 rounded-full' 
+                onClick={handleDummy}>Dummy Details</button>
+            </div>
+            <div className=' min-w-min w-full sm:space-x-80 flex justify-between pt-10  sm:px-0'>
+                  <button
+                  className='ml-4 hover:scale-105 hover:-translate-x-1 duration-300 hover:bg-yellow-100 ease-out' 
+                  onClick={()=>dispatch(setStep('a'))}> <ChevronLeftIcon height={30}/></button>
+                  <button 
+                  className=' mr-4 hover:scale-105 hover:translate-x-1 duration-300 hover:bg-yellow-100 ease-out' 
+                  onClick={forwardStep}> <ChevronRightIcon height={30}/></button>
               </div>
         </div>
     )

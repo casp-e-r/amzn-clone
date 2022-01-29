@@ -16,7 +16,7 @@ function Payment() {
     const {handleChange,values}=useForm()
     const cartItems  = useSelector(selectItems)
     const checkout=useSelector(checkoutItems)
-    console.log(checkout.shipping);
+    // console.log(checkout.shipping);
     let order
     useEffect(async () => {
         if (submitting && Object.keys(errors).length===0 ) {
@@ -29,11 +29,11 @@ function Payment() {
                     dispatch(setOrder(order))
                     dispatch(clearCart())
             dispatch(showCart(false)) 
-            return <Confetti tweenDuration={5000} recycle={false}/>      
+            // return <Confetti tweenDuration={5000} recycle={false}/>      
 
         }
     }, [errors])
-    console.log(Object.keys(errors).length,submitting);
+    // console.log(Object.keys(errors).length,submitting);
     const PaymentStep=async ()=>{
         if (state) {
             setErrors(validatePayment(values))
@@ -47,7 +47,7 @@ function Payment() {
             dispatch(setOrder(order))
             dispatch(clearCart())
             dispatch(showCart(false))
-            return <Confetti tweenDuration={5000} recycle={false}/>       
+            // return <Confetti tweenDuration={5000} recycle={false}/>       
           
 
         } 
@@ -95,9 +95,10 @@ function Payment() {
                 </div>
                 
             </div>
-            <div className='w-full space-x-80 flex justify-between pt-10'>
-                  <button onClick={()=>dispatch(setStep('b'))}> <ChevronLeftIcon height={30}/></button>
-                  <button className='px-6 group py-2 flex text-center bg-yellow-400 hover:bg-yellow-500 rounded-xl text-black font-weight:bold' onClick={PaymentStep}> 
+            
+            <div className='w-full sm:space-x-80 flex justify-between pt-10 mb-5'>
+                  <button className='ml-4 hover:scale-105 hover:-translate-x-1 duration-300 hover:bg-yellow-100 ease-out' onClick={()=>dispatch(setStep('b'))}> <ChevronLeftIcon height={30}/></button>
+                  <button className='px-6 mr-3 group py-2 flex text-center bg-yellow-400 hover:bg-yellow-500 rounded-xl  text-black font-weight:bold' onClick={PaymentStep}> 
                   Place order <TruckIcon className='h-6 ml-3 group-hover:translate-x-2 ease-in-out duration-700'/>
                   </button>
             </div>

@@ -19,8 +19,8 @@ function OrderCard({order}) {
             <p className="p-3 flex flex-row ">Total Amount :<h5 className="pl-3 text-indigo-50 font-extrabold">{sum}</h5></p>
             </div>
             <div className="ml-auto px-5 align-text-bottom bg-yellow-300 rounded-md pt-10 ">
-                    <p className="">{order.shipping.address}</p>
-                    <p className='pt-2'>Pincode:{order.shipping.pin}</p>
+                    <p className="">Address :{order.shipping.address}</p>
+                    <p className='pt-2'>Pincode :{order.shipping.pin}</p>
 
                 </div>
         </div>

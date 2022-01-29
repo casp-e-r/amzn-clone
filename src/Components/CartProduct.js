@@ -43,7 +43,9 @@ function CartProduct({product}) {
             </div>
             
             <div className='text-sm md:text-base col-span-2 mx-1 space-y-2'>
-                <p className='hover:cursor-pointer font-normal' onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>{product.title}</p>
+                <p className='hover:cursor-pointer font-normal' 
+                onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>
+                    {product.title.slice(0,40)}...</p>
                 <p className='font-light'>{product.category}</p>
                 <div className='flex space-x-2'>
                 <p className='text-sm font-light'>{product.quantity} x {product.price} </p>

@@ -61,9 +61,11 @@ function Review() {
                     </div>)
                 })}
                 <div>
-                <div className='w-full space-x-80 flex justify-end pt-10'>
+                <div className='w-full sm:space-x-80 flex justify-end pt-10 '>
                    
-                   <button onClick={()=>dispatch(setStep('b'))}> <ChevronRightIcon height={30}/></button>
+                   <button
+                   className='mr-4 hover:scale-105 hover:translate-x-1 duration-300  hover:bg-yellow-100 ease-out' 
+                   onClick={()=>dispatch(setStep('b'))}> <ChevronRightIcon height={30}/></button>
                 </div>
                 </div>
               
