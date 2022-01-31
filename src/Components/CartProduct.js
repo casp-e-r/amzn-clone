@@ -48,8 +48,8 @@ function CartProduct({product}) {
                     {product.title.slice(0,40)}...</p>
                 <p className='font-light'>{product.category}</p>
                 <div className='flex space-x-2'>
-                <p className='text-sm font-light'>{product.quantity} x {product.price} </p>
-                <p className='font-medium pl-5'>{product.quantity*product.price}</p>
+                <p className='text-sm font-light'>{product.quantity} x {Math.floor(product.price)} $ </p>
+                <p className='font-medium pl-5'>{Math.floor(product.quantity*product.price)} $</p>
                 </div>
             </div>
 

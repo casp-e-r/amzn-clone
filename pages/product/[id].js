@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify'
 import Head from 'next/head'
 
 function  detail({product}) {
-    
     return (
         <div className=' h-screen justify-between'>
             <Head>

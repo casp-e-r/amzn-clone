@@ -5,17 +5,22 @@ import Review from "../src/Components/checkout/Review";
 import  Router  from "next/router";
 import { useEffect, useState } from "react";
 import Shipping from "../src/Components/checkout/Shipping";
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { ChevronLeftIcon, ChevronRightIcon, HomeIcon } from '@heroicons/react/outline'
 import Payment from "../src/Components/checkout/Payment";
 import { checkoutItems, checkoutStep, setStep } from "../src/slices/checkoutSlice";
 import Head from 'next/head'
 import { ToastContainer } from "react-toastify";
+import { useSession } from "next-auth/client";
 
 function checkout(){
     const items = useSelector(selectItems)
     const [state, setstate] = useState(0)
     const step = useSelector(checkoutStep)
     const dispatch = useDispatch()
+    const [session] = useSession()
+    useEffect(() => {
+        !session && Router.push('/')
+    }, [session])
     
 
 
@@ -33,7 +38,7 @@ function checkout(){
         <div className='mx-1 md:ml-10 mb-7'>
                    <Image src='/amzn.png' width={100} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
         </div>
-        <div className='flex flex-col justify-center items-center mx-1 '> 
+        {session && <div className='flex flex-col justify-center items-center mx-1 '> 
                  
             <div className=' mb-10 mx-auto flex space-x-20 md:space-x-48 '> 
                 <div className='flex flex-col justify-center items-center'>
@@ -58,8 +63,8 @@ function checkout(){
             </div>
             <div>
                 <button
-                className='px-4 py-2 bg-yellow-400  text-black rounded-full  hover:bg-yellow-500 '  
-                onClick={()=>Router.push('/')}>Continue Shopping</button>
+                className='px-4 py-2 bg-yellow-400  text-black rounded-full   hover:bg-yellow-500 '  
+                onClick={()=>Router.push('/')}>Continue Shopping </button>
             </div>
         <ToastContainer
          position="top-center"
@@ -71,7 +76,7 @@ function checkout(){
          pauseOnFocusLoss
          draggable
          pauseOnHove/>
-        </div>
+        </div>}
         </>
     )
 }

@@ -59,7 +59,7 @@ function ProductCard({product}) {
             </div>
             <p className='text-sm md:text-base cursor-pointer hover:font-medium'
                 onClick={()=>Router.push(`/product/${product.id}`)}>{product.title.slice(0,40)}...</p>
-            <p className='text-sm md:text-base '>{product.price}</p>
+            <p className='text-sm md:text-base '>{Math.floor(product.price)} $</p>
             
             </div>
             <button className='group text-sm md:text-base mt-auto flex justify-center cursor-pointer bg-blue-700 hover:bg-transparent  hover:bg-blue-900 text-white text-center p-2 rounded'

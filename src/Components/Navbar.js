@@ -49,7 +49,7 @@ function Navbar() {
                         <button
                         onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer rounded-3xl hover:bg-yellow-500 hover:bg-opacity-30 duration-300' /></button>
                     </div>                
-                    <div className="group inline-block relative items-center  ">
+                    {session ? <div className="group inline-block relative items-center  ">
                         <button
                             className="  font-semibold py-1 px-1 rounded inline-flex items-center">
                             <UserIcon className='h-8 p-1  ' />
@@ -60,11 +60,11 @@ function Navbar() {
                             </svg>
                         </button>
                         <ul className="absolute hidden z-50 bg-yellow-200   rounded-md  group-hover:block">
-                            <li className="">
+                            {session && <li className="">
                                 <button
                                     className=" text-sm  py-2 px-6 block whitespace-nowrap hover:bg-yellow-400"
                                     onClick={() => Router.push('/account')}> My account </button>
-                            </li>
+                            </li>}
                             <li className="">
                                 <button
                                     className=" text-sm py-2 w-full px-6 block whitespace-nowrap hover:bg-yellow-400"
@@ -72,7 +72,11 @@ function Navbar() {
                                 >{session ? 'sign out':'log in'} </button>
                             </li>
                         </ul>
-                    </div>
+                    </div> :
+                    <button className=" text-sm py-2 font-medium px-6 block whitespace-nowrap rounded-3xl hover:bg-yellow-400"
+                         onClick={!session ? ()=>Router.push('/signin') : signOut}
+                        >{session ? 'Sign Out':'Log In'} </button>
+                    }
             
                     <div className=' flex  items-center m-3 justify-end ' >
                         <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-9  text-sm lg:text-base '>{items.length}</span>
@@ -83,16 +87,7 @@ function Navbar() {
                 </div>
 
             </div>
-            {/* <div className={`absolute top-0  ease-in-out transition-all duration-1000 ${toggle ? "translate-x-0 ":"translate-x-full "}`}>
-                <div id='cart' className={`w-screen  absolute top-0  ease-in-out transition-all duration-1000 ${toggle ? "translate-x-0 ":"translate-x-full "}  ${!toggle ?"hidden":'block'} `} >
-                    <div className='z-40 min-h-screen fixed right-0 top-0 left-0  ' onClick={()=>dispatch(showCart(false))}>   
-                    </div> 
-                    <div  className={`fixed w-full min-h-screen  float-right z-50 top-0 right-0 bottom-0 shadow-2xl overflow-scroll bg-white md:w-3/5 lg:w-2/5 transition-all ease-in-out duration-1000 ${toggle ? "translate-x-0" : "translate-x-full "} `}>
-                    <Cart t={toggle}/>
-                    </div>
-                </div> 
-            </div> */}
-            {/* {toggle ? <Cart  t={toggle}/> : null } */}
+            
             <Cart/>
         </div>
         

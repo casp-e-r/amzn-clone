@@ -27,7 +27,7 @@ function Cart() {
     
     return (
         <div id='cart' className={` w-screen fixed top-0  h-screen bg-opacity-0 ${toggle ? "translate-x-0" : "translate-x-full"}`} >
-            <div className='z-40 min-h-screen fixed right-0 top-0 left-0 bg-opacity-10 bg-gray-400 ' onClick={()=>dispatch(showCart(false))}>   
+            <div className='z-40 min-h-screen fixed right-0 top-0 left-0 bg-opacity-10 bg-black ' onClick={()=>dispatch(showCart(false))}>   
             </div>  
             <div  className={`absolute w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl  overflow-x-hidden bg-white md:w-3/5 lg:w-2/5 ease-in-out duration-1000 ${toggle ? "translate-x-0" : "translate-x-full"} `}>
                 <div className='h-screen'>
@@ -52,7 +52,7 @@ function Cart() {
                     {items.length > 0 &&
                     <div className='w-full bg-white fixed bottom-0 pl-10 my-2 sm:my-5 py-2 md:py-4 border-t-2 border-yellow-400 '>
                         <h1 className='text-md font-light'>Total Price :</h1>
-                        <p className='text-lg font-bold'>{items.reduce((total, item) => total + item.price * item.quantity, 0)}</p>
+                        <p className='text-lg font-bold'>{items.reduce((total, item) => total + (item.price) * item.quantity, 0)} $</p>
                         <button
                             onClick={() => Router.push('/checkout')}
                             disabled={!session}

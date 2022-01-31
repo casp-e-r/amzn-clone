@@ -53,7 +53,7 @@ function Review() {
                             <p className='font-light'>quantity:{e.quantity}</p>
                         </div>
                         <div className='float-right w-14'>
-                            <h1>{e.quantity*e.price}</h1>
+                            <h1>{e.quantity*Math.floor(e.price)} $</h1>
                         </div>
                         <div className='flex items-center justify-center px-4 space-x-7'>                               
                             <button className='bg-red-500 text-white rounded-2xl  p-2' onClick={()=>removeItemFromCart(e)}>< TrashIcon className='h-4'/></button>

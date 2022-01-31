@@ -20,15 +20,14 @@ function signin({ providers }) {
         
 
       </div>
-      <div className='bg-gray-400 ' >
+      <div className='' >
         {Object.values(providers).map((provider) => {
           return (
-            <div key={provider.name} className={`flex items-center px-10 gap-x-4 py-2
+            <div key={provider.name}  onClick={() => signIn(provider.id)}
+            className={`cursor-pointer rounded-2xl  flex items-center px-10 gap-x-4 py-2
             ${provider.name === 'Google' ? "bg-black text-white" : provider.name === Google1 ? null: null}`}>
               
-              <button
-                className=''
-                onClick={() => signIn(provider.id)}>
+              <button className='' onClick={() => signIn(provider.id)}>
                 Sign in with {provider.name}
               </button>
               <Image width={50} height={50}
@@ -42,7 +41,7 @@ function signin({ providers }) {
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Conditions of use</a>
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Privacy Notice</a>
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Help</a>
-      </div>
+      </div> 
 
     </div>
   )
