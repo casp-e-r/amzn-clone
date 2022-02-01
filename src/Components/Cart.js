@@ -41,7 +41,7 @@ function Cart() {
                                  <p className=' font-extralight text-md'>Get your new favorite products before they’re gone!</p>
                              </div>
                              : 
-                            <div className='flex border-b-2 pb-3 h-full border-yellow-400'>Your cart <ShoppingBagIcon className='text-blue-900 h-6 pl-4'/></div>
+                            <div className='flex border-b-2 pb-3 h-full border-black'>Your cart <ShoppingBagIcon className='text-blue-900 h-6 pl-4'/></div>
                             }</h1>
                     <div className=' align-top mx-auto sm:w-full sm:mx-0 px-2 p-2  h-full overflow-y-scroll '>
 
@@ -50,9 +50,9 @@ function Cart() {
                         })}
                     </div>
                     {items.length > 0 &&
-                    <div className='w-full bg-white fixed bottom-0 pl-10 my-2 sm:my-5 py-2 md:py-4 border-t-2 border-yellow-400 '>
-                        <h1 className='text-md font-light'>Total Price :</h1>
-                        <p className='text-lg font-bold'>{items.reduce((total, item) => total + (item.price) * item.quantity, 0)} $</p>
+                    <div className='w-full fixed bottom-0 pl-10 my-2 sm:my-5 py-2 md:py-4 border-t border-black bg-yellow-50 '>
+                        <h1 className='text-md font-light'>Total Price </h1>
+                        <p className='text-lg font-bold'>${items.reduce((total, item) => total + (item.price) * item.quantity, 0)} </p>
                         <button
                             onClick={() => Router.push('/checkout')}
                             disabled={!session}

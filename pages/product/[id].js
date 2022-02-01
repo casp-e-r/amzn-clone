@@ -29,7 +29,10 @@ function  detail({product}) {
             draggable
             pauseOnHove
             />
+            <div className='w-full absolute bottom-0'>
+
             <Footer/>
+            </div>
         </div>
     )
 }

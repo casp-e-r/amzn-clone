@@ -41,13 +41,14 @@ function Navbar() {
                 </div>
 
                 <div className='flex flex-grow justify-end items-center md:space-x-8'>
-                    <div className='flex items-center rounded-lg bg-yellow-200 h-8 sm:h-9 mr-1 sm:mr-4'>
-                        <input type='text' className='w-3/5 outline-none flex-grow  bg-transparent text-sm p-2 '
+                    <div className='flex items-center rounded-lg bg-yellow-200 h-7 sm:h-9 mr-1 sm:mr-4'>
+                        <input type='text' className=' placeholder-black placeholder-opacity-70 w-3/5 outline-none flex-grow placeholder-shown:text-sm bg-transparent text-sm p-2 '
                         value={search}
                         onChange={(e)=>setSearch(e.target.value)}
+                        placeholder="Search..."
                         onKeyDown={handleKeyDown}/>
                         <button
-                        onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer rounded-3xl hover:bg-yellow-500 hover:bg-opacity-30 duration-300' /></button>
+                        onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer rounded-3xl hover:scale-110 hover:bg-opacity-30 duration-300' /></button>
                     </div>                
                     {session ? <div className="group inline-block relative items-center  ">
                         <button
@@ -68,20 +69,20 @@ function Navbar() {
                             <li className="">
                                 <button
                                     className=" text-sm py-2 w-full px-6 block whitespace-nowrap hover:bg-yellow-400"
-                                    onClick={!session ? ()=>Router.push('/signin') : signOut}
-                                >{session ? 'sign out':'log in'} </button>
+                                    onClick={signOut}
+                                >Sign Out </button>
                             </li>
                         </ul>
                     </div> :
-                    <button className=" text-sm py-2 font-medium px-6 block whitespace-nowrap rounded-3xl hover:bg-yellow-400"
-                         onClick={!session ? ()=>Router.push('/signin') : signOut}
-                        >{session ? 'Sign Out':'Log In'} </button>
+                    <button className=" text-sm py-1 sm:py-2 font-medium px-3 sm:px-6 block whitespace-nowrap rounded-lg hover:bg-yellow-200 duration-500 ease-in-out"
+                         onClick={ ()=>Router.push('/signin') }
+                        >Log In </button>
                     }
             
-                    <div className=' flex  items-center m-3 justify-end ' >
-                        <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-2 top-4 md:right-9  text-sm lg:text-base '>{items.length}</span>
+                    <div className=' flex  items-center mx-2 sm:m-3 justify-end ' >
+                        <span className='absolute h-5 w-5 rounded-full  text-center  bg-yellow-300 right-1 sm:right-2 top-4 md:right-9  text-sm lg:text-base '>{items.length}</span>
                         <div className='relative cursor-pointer' onClick={()=>dispatch(showCart(true))}>
-                            <ShoppingBagIcon className='h-10 p-2 md:mr-10' />
+                            <ShoppingBagIcon className='h-9 sm:h-10 p-2 md:mr-10' />
                         </div>
                     </div>
                 </div>

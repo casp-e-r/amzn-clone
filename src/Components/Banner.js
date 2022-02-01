@@ -10,8 +10,9 @@ function Banner() {
             autoPlay
             infiniteLoop
             showStatus={false}
-            showIndicators={false}
+            // showIndicators={false}
             showThumbs={false}
+            showArrows={false}
             interval={5000}
             >
                 <div>

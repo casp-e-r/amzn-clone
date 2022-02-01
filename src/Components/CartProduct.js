@@ -48,8 +48,8 @@ function CartProduct({product}) {
                     {product.title.slice(0,40)}...</p>
                 <p className='font-light'>{product.category}</p>
                 <div className='flex space-x-2'>
-                <p className='text-sm font-light'>{product.quantity} x {Math.floor(product.price)} $ </p>
-                <p className='font-medium pl-5'>{Math.floor(product.quantity*product.price)} $</p>
+                <p className='text-sm font-light'>{product.quantity} x ${Math.floor(product.price)}  </p>
+                <p className='font-medium pl-5'>${Math.floor(product.quantity*product.price)} </p>
                 </div>
             </div>
 
@@ -58,13 +58,13 @@ function CartProduct({product}) {
 
                     <button
                      onClick={productQuantityDecrement} 
-                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900 transition-all duration-300 ease-in-out ${product.quantity <= 1 && "cursor-not-allowed hover:bg-white bg-white"}`}>
-                     <MinusIcon className='h-3'/>
+                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900 transition-all duration-300 ease-in-out ${product.quantity <= 1 && "hover:bg-white"}`}>
+                     <MinusIcon className={`h-3 ${product.quantity <= 1 && "hover:text-white"}`}/>
                      </button>
                     <span className=' text-base'>{product.quantity}</span>
                     <button onClick={productQuantityIncrement}  
-                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900  duration-300 ease-in-out  ${product.quantity === 5 && "cursor-not-allowed hover:bg-white bg-white"}`}>
-                     <PlusIcon className='h-3'/></button>
+                     className={` p-1 py-2 mx-3 border rounded text-blue-700  hover:bg-yellow-300 border-blue-900  duration-300 ease-in-out  ${product.quantity === 5 && "hover:bg-white"}`}>
+                     <PlusIcon className={`h-3 ${product.quantity === 5 && "hover:text-white"}`}/></button>
                     
                 </div>
                 <button className='text-xs text-red-700 border border-red-700 rounded hover:bg-red-700 hover:text-white transition-all duration-300 ease-in-out bg-white flex justify-center py-1 -px-3 ' 

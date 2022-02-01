@@ -52,7 +52,7 @@ function Product({product}) {
 
                 <div className='w-full md:w-2/4space-y-2 px-3 md:pl-7'>
                     <h1 className=" font-extrabold text-lg py-2" >{product.title}</h1>
-                    <p className=" font-medium">{Math.floor(product.price)} $</p>
+                    <p className=" font-medium">${Math.floor(product.price)}</p>
                     <p className=" text-lg font-light py-2 " >{product.category}</p>
                     <p className=" font-normal">{product.description}</p>
                     <p>{product.rating.rate}</p>
