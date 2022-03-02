@@ -24,7 +24,7 @@ function signin({ providers }) {
         {Object.values(providers).map((provider) => {
           return (
             <div key={provider.name}  onClick={() => signIn(provider.id)}
-            className={`cursor-pointer rounded-2xl  flex items-center px-10 gap-x-4 py-2
+            className={`cursor-pointer hover:bg-black/80 rounded-2xl  flex items-center px-5 md:px-7 gap-x-4 py-1 md:py-1.5
             ${provider.name === 'Google' ? "bg-black text-white" : provider.name === Google1 ? null: null}`}>
               
               <button className='' onClick={() => signIn(provider.id)}>

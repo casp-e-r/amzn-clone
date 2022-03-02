@@ -33,7 +33,7 @@ function Cart() {
                 <div className='h-screen'>
                 <button className=' m-2 bg-yellow-300 py-1 px-3 rounded-full hover:bg-yellow-500 duration-300' onClick={()=>dispatch(showCart(false))} ><XIcon height={20}/></button>
                 
-                <div className='pr-3 md:m-3 lg:mx-6 grid relative  h-[95%]   '>
+                <div className='pr-3 md:m-3 lg:mx-6 grid relative  h-[95%]    '>
                         <h1 className={`px-10 py-1 mb-3 max-h-10 ${items.length === 0 && "flex mx-auto pt-10" }`}>
                             {items.length === 0 ?
                              <div className='h-full '>
@@ -50,13 +50,13 @@ function Cart() {
                         })}
                     </div>
                     {items.length > 0 &&
-                    <div className='  bottom-0 px-10 my-2 mt-10 sm:my-5 py-2 md:py-4 border-t-2 border-yellow-400 bg-yellow-100 '>
-                        <h1 className='text-md font-light'>Total Price </h1>
+                    <div className='h-40  bottom-0 px-10 my-2 mt-10 sm:my-5 py-2 md:py-4  rounded-xl border-yellow-400 bg-yellow-100 '>
+                        <h1 className='text-md font-light underline'>Total Price </h1>
                         <p className='text-lg font-bold'>${items.reduce((total, item) => total + (Math.floor(item.price)) * item.quantity, 0)} </p>
                         <button
                             onClick={() => Router.push('/checkout')}
                             disabled={!session}
-                            className={`${!session && "bg-gray-300 cursor-not-allowed"} cursor-pointer px-4 my-3 py-2 rounded-xl bg-yellow-400 `}>
+                            className={`${!session && "bg-gray-300 hover:bg-gray-400 cursor-not-allowed"} cursor-pointer px-4 my-3 py-2 rounded-xl bg-yellow-400 `}>
                             {!session ? "sign in to proceed" : 'Proceed to checkout'}</button>
                     </div>
                     }
