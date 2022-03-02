@@ -14,9 +14,9 @@ import { ToastContainer } from 'react-toastify'
 function account() {
     const [state, setstate] = useState(0)
     const [session] = useSession()
-    // useEffect(() => {
-    //     !session && Router.push('/')
-    // }, [session])
+    useEffect(() => {
+        !session && Router.push('/')
+    }, [session])
     console.log(session);
     return (
         <div className='min-h-screen'>
