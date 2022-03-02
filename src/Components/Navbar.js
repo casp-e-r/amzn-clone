@@ -74,7 +74,7 @@ function Navbar() {
                             </li>
                         </ul>
                     </div> :
-                    <button className=" text-sm py-1 sm:py-2 font-medium px-3 sm:px-6 block whitespace-nowrap rounded-lg hover:bg-yellow-200 duration-500 ease-in-out"
+                    <button className=" border-r border-l border-black text-sm py-1 sm:py-2 font-medium px-3 sm:px-6 block whitespace-nowrap hover:rounded-lg hover:bg-yellow-200 duration-500 ease-in-out"
                          onClick={ ()=>Router.push('/signin') }
                         >Log In </button>
                     }

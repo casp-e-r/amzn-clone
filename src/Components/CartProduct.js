@@ -38,19 +38,21 @@ function CartProduct({product}) {
     }
     return (
         <div className='w-full  flex col-span-5  my-4 gap-x-3 md:gap-x-6'>
-            <div className='p-2'>
-                <Image width={80} height={80} src={product.image} layout='fixed' objectFit='contain' />
+            <div className='flex cursor-pointer gap-x-3' 
+            onClick={async()=>{await Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>
+            <div className='p-2 hover:scale-105'>
+                <Image width={80} height={80} src={product.image} layout='fixed' objectFit='contain'  />
             </div>
             
             <div className='text-sm md:text-base col-span-2 mx-1 space-y-2'>
-                <p className='hover:cursor-pointer font-normal' 
-                onClick={()=>{Router.push(`/product/${product.id}`),dispatch(showCart(false))}}>
+                <p className='hover:cursor-pointer font-normal' >
                     {product.title.slice(0,40)}...</p>
                 <p className='font-light'>{product.category}</p>
                 <div className='flex space-x-2'>
                 <p className='text-sm font-light'>{product.quantity} x ${Math.floor(product.price)}  </p>
                 <p className='font-medium pl-5'>${Math.floor(product.quantity*product.price)} </p>
                 </div>
+            </div>
             </div>
 
             <div className='flex flex-col col-span-2 ml-auto '>

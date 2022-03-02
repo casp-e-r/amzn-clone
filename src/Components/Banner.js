@@ -5,24 +5,27 @@ import { Carousel } from 'react-responsive-carousel'
 
 function Banner() {
     return (
-        <div className='relative lg:px-20 '>
+        <div className='relative md:h-60 lg:h-64 xl:h-72 2xl:h-96  xl:px-20 xl:mb-5 '>
             <Carousel 
             autoPlay
             infiniteLoop
             showStatus={false}
-            // showIndicators={false}
+            showIndicators={false}
             showThumbs={false}
-            showArrows={false}
+            // showArrows={false}
             interval={5000}
             >
                 <div>
-                    <img loading='lazy' src='/b1.gif'/>
-                </div>
-                <div>
-                <img loading='lazy' src='/b2.jpg'/>
+                    <img loading='lazy' src='/b6.jpg'/>
                 </div>
                 <div>
                     <img loading='lazy' src='/b3.gif'/>
+                </div>
+                <div>
+                <img loading='lazy' src='/b1.gif'/>
+                </div>
+                <div>
+                    <img loading='lazy' src='/b5.jpg'/>
                 </div>
             </Carousel>
             

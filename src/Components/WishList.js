@@ -16,7 +16,7 @@ function WishList() {
             {wish.length===0 ? 
                 <div className='w-full  mx-20 content-center justify-center'>
                     <h1 className=' font-extrabold flex text-center '><ExclamationCircleIcon className='h-5 mr-3'/>Your wishlist is empty!!</h1>
-                    <p className='text-gray-600 py-1 font-light'>Tap heart icon to start saving your favourite items</p>
+                    <p className='text-gray-600 py-1 font-light'> start saving your favourite items now!</p>
                     
                 </div>
                 :
