@@ -44,7 +44,7 @@ function ProductCard({product}) {
     }
 //    console.log(wishItem);
     return (
-        <div className='  relative rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
+        <div className=' animate-fade  relative   rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
             
             <div>
             <p className='absolute text-xs top-2 right-2'>{product.category}</p> 
@@ -52,7 +52,7 @@ function ProductCard({product}) {
                 className={`absolute hover:scale-125  top-4 left-4 cursor-pointer h-8 p-1 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${state && 'fill-current'}`}
                 onClick={state ? removeFavHandler :addFavHandler}
                 />
-            <div className='relative text-center mt-1 hover:scale-105 cursor-pointer duration-500'
+            <div className='relative text-center mt-1 hover:scale-105 cursor-pointer duration-300'
             onClick={()=>Router.push(`/product/${product.id}`)}>
                 
                 <Image src={product.image} width={200} height={200} objectFit='contain'  />
@@ -60,7 +60,7 @@ function ProductCard({product}) {
             </div>
  
 
-            <p className='text-sm md:text-base cursor-pointer  hover:scale-105  duration-150' 
+            <p className='text-sm md:text-base cursor-pointer  ' 
                 onClick={()=>Router.push(`/product/${product.id}`)}>{product.title.slice(0,40)}{product.title.length>40 && '...'}</p>
             <p className='flex  text-sm md:text-base font-bold font-sans  align-bottom '>${Math.floor(product.price)} </p>
 
