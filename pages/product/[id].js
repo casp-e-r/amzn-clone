@@ -6,6 +6,8 @@ import { ToastContainer } from 'react-toastify'
 import Head from 'next/head'
 import Image from 'next/image';
 import  Router  from 'next/router';
+import { Zoom } from 'react-toastify';
+
 
 
 
@@ -29,7 +31,7 @@ function  detail({product,products}) {
             </Head>
 
             <Navbar/>
-            <div className=' mt-16 pb-auto'>
+            <div className=' mt-16 pb-auto animate-fadeIn'>
                 <Product product={product} />
 
             </div>
@@ -60,6 +62,7 @@ function  detail({product,products}) {
             pauseOnFocusLoss
             draggable
             pauseOnHove
+            transition={Zoom}
             />
             <div className='w-full mt-6  bottom-0'>
 

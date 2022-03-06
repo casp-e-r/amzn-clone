@@ -32,7 +32,7 @@ function Review() {
     return (
         <div className=' py-6 '>
             
-            <div className='flex flex-col space-y-2 justify-center items-center' >
+            <div className='flex flex-col space-y-2 justify-center items-center animate-fadeIn' >
                 <h1 >Order Summary</h1>
                 <p className='text-gray-600 text-xs '>review items </p>
 

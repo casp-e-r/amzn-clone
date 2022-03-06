@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 function Banner() {
     return (
-        <div className='relative md:h-60 lg:h-64 xl:h-72 2xl:h-96  xl:px-20 xl:mb-5 '>
+        <div className='relative md:h-60 md:mx-2 lg:h-64 xl:h-72 2xl:h-96  xl:px-20 xl:mb-5 animate-fadeIn'>
             <Carousel 
             autoPlay
             infiniteLoop

@@ -35,7 +35,7 @@ function Product({product}) {
     }, [wishstate])
     return (
         <div>
-            <div className=' m-6 space-y-10 lg:mx-7 xl:mx-20 md:flex md:space-x-10' >
+            <div className=' m-6 space-y-10 lg:mx-7 xl:mx-20 md:flex md:space-x-10 ' >
                 <div className='w-full p-9 relative  items-center sm:p-20  lg:w-4/5 xl:w-2/5 md:p-2 md:py-12  '>
                     <Image src={product.image} height={'100%'} width={'100%'} layout='responsive' objectFit='contain'  className=' '/>
                 <H1 

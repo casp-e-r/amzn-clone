@@ -1,11 +1,10 @@
 
-import { useSession, Usesession } from "next-auth/client"
+import { useSession } from "next-auth/client"
 import  Router  from "next/router"
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectItems,showCart, toggleCart } from "../slices/cartSlice"
 import CartProduct from "./CartProduct"
-import { XIcon,ShoppingCartIcon, ShoppingBagIcon,EmojiSadIcon } from '@heroicons/react/outline'
+import { XIcon,ShoppingBagIcon,EmojiSadIcon } from '@heroicons/react/outline'
 
 
 
@@ -14,19 +13,11 @@ function Cart() {
     const items = useSelector(selectItems)
     const dispatch = useDispatch()
     const toggle = useSelector(toggleCart)
-    useEffect(() => {
-        // if(toggle){
-            // document.body.style.overflow='visible'
-        // }else{
-        //   document.body.style.overflow='unset'
-        
-  
-        // }
-      },[])
+    
 
     
     return (
-        <div id='cart' className={` w-screen fixed top-0  duration-1000  h-screen bg-opacity-0 ${toggle ? "translate-x-0" : "translate-x-full"}`} >
+        <div id='cart' className={`no-scrollbar w-screen fixed top-0  duration-1000  h-screen bg-opacity-0 ${toggle ? "translate-x-0" : "translate-x-full"}`} >
             <div className='z-40 min-h-screen fixed right-0 top-0 left-0  ' onClick={()=>dispatch(showCart(false))}>   
             </div>  
             <div  className={`absolute overflow-y-hidden  w-full min-h-screen float-right z-50 top-0 right-0 bottom-0 shadow-2xl  overflow-x-hidden bg-white md:w-3/5 lg:w-2/5 ease-in-out duration-1000 ${toggle ? "translate-x-0" : "translate-x-full"} `}>

@@ -10,6 +10,8 @@ import Feed from '../src/Components/Feed'
 import Footer from '../src/Components/Footer'
 import Navbar from '../src/Components/Navbar'
 import { checkoutItems, setStep } from '../src/slices/checkoutSlice'
+import { Zoom } from 'react-toastify';
+
 
 
 
@@ -61,14 +63,14 @@ export default function Home({products,categories}) {
   
  
   return (
-    <div className=" overflow-x-hidden">
+    <div className=" no-scrollbar  overflow-x-hidden">
       <Head>
         <title>Amzn Cart</title>
         <link rel="icon" href="/a.jpeg" />
       </Head>
 
       <Navbar/>
-      <main className='justify-center h-auto  lg:px-20 mt-16    '>
+      <main className='justify-center h-auto animate-fadeIn  lg:px-20 mt-16    '>
       <Banner/>
       <Feed products={products} categories={categories}/>
       {state && <Confetti
@@ -90,7 +92,7 @@ export default function Home({products,categories}) {
       pauseOnFocusLoss
       draggable
       pauseOnHove
-      
+      transition={Zoom}
       />
       
       </main>

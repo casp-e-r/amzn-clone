@@ -13,7 +13,7 @@ function Orders() {
      const checkout = useSelector(checkoutItems)
     console.log(checkout.order);
     return (
-        <div className='pt-5 w-full h-full overflow-hidden '>
+        <div className='pt-5 w-full h-full overflow-hidden animate-fade '>
             {checkout.order.length ===0 ? <div className='mx-auto'>
                 <h1 className=' font-extrabold flex text-center '>No Order Found  </h1>
                     <p className='text-gray-600 py-1 font-light'> looks like you haven't made your first order yet</p>

@@ -16,7 +16,7 @@ function Payment() {
     const {handleChange,values}=useForm()
     const cartItems  = useSelector(selectItems)
     const checkout=useSelector(checkoutItems)
-    // console.log(checkout.shipping);
+
     let order
     useEffect(async () => {
         if (submitting && Object.keys(errors).length===0 ) {
@@ -29,11 +29,11 @@ function Payment() {
                     dispatch(setOrder(order))
                     dispatch(clearCart())
             dispatch(showCart(false)) 
-            // return <Confetti tweenDuration={5000} recycle={false}/>      
+
 
         }
     }, [errors])
-    // console.log(Object.keys(errors).length,submitting);
+
     const PaymentStep=async ()=>{
         if (state) {
             setErrors(validatePayment(values))
@@ -46,15 +46,13 @@ function Payment() {
                 shipping:checkout.shipping}
             dispatch(setOrder(order))
             dispatch(clearCart())
-            dispatch(showCart(false))
-            // return <Confetti tweenDuration={5000} recycle={false}/>       
-          
+            dispatch(showCart(false))              
 
         } 
     }
     return (
         <div className=''>
-            <div className='text-center font-bold mb-4'>
+            <div className='text-center font-bold mb-4 animate-fadeIn'>
                 <h2>Payment Method</h2>
             </div>
             <div className={`space-y-6 justify-center items-center backdrop-blur-xl py-20${!state && 'cursor-pointer'}`}>

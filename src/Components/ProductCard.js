@@ -47,7 +47,7 @@ function ProductCard({product}) {
         <div className=' animate-fade  relative   rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
             
             <div>
-            <p className='absolute text-xs top-2 right-2'>{product.category}</p> 
+            <p className='absolute text-xs top-2 right-2 font-light'>{product.category}</p> 
             <H1 
                 className={`absolute hover:scale-125  top-4 left-4 cursor-pointer h-8 p-1 shadow-sm hover:bg-opacity-0 bg-yellow-100 rounded-xl  text-red-700 transition ease-in duration-100 ${state && 'fill-current'}`}
                 onClick={state ? removeFavHandler :addFavHandler}

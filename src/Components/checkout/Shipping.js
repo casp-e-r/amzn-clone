@@ -40,7 +40,7 @@ function Shipping() {
     }
     return (
         <div>
-            <div className='text-center font-bold mb-4'>
+            <div className='text-center font-bold mb-4 animate-fadeIn'>
                 <h2>Shipping Details</h2>
             </div>
             <div className='px-5 sm:p-0 '>
@@ -52,7 +52,7 @@ function Shipping() {
                         <input type='text' name='name' value={values.name} 
                             onChange={handleChange}
                             className='border outline-none border-gray-600 ' />
-                            {errors.name && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.name}</p>}
+                            {errors.name && <p className='animate-fadeIn  text-xs text-red-600'>{errors.name}</p>}
                     </div>
                     
                     <div className='w-full grid flex-grow gap-y-3'>
@@ -60,7 +60,7 @@ function Shipping() {
                         <input type='email' name='email' value={values.email}
                             onChange={handleChange} 
                             className='border  outline-none border-gray-600' />
-                            {errors.email && <p className=' duration-500 ease-in-out text-xs text-red-600'>{errors.email}</p>}
+                            {errors.email && <p className='animate-fadeIn  text-xs text-red-600'>{errors.email}</p>}
 
                     </div>
 
@@ -69,7 +69,7 @@ function Shipping() {
                         <input type='text' name='phone' value={values.phone} 
                             onChange={handleChange}
                             className='border outline-none border-gray-700 ' />
-                            {errors.phone && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.phone}</p>}
+                            {errors.phone && <p className='animate-fadeIn duration-500 ease-in-out text-xs text-red-600'>{errors.phone}</p>}
 
                     </div>
 
@@ -78,7 +78,7 @@ function Shipping() {
                         <input type='text' name='address' value={values.address}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-600' />
-                            {errors.address && <p className='duration-500 ease-in-out text-xs text-red-600'>{errors.address}</p>}
+                            {errors.address && <p className='animate-fadeIn  text-xs text-red-600'>{errors.address}</p>}
 
                     </div> 
                     <div className='w-1/3 grid flex-grow gap-y-3'>
@@ -86,7 +86,7 @@ function Shipping() {
                         <input type='text' name='pin' value={values.pin}
                             onChange={handleChange} 
                             className='border outline-none resize-none border-gray-600' />
-                            {errors.pin && <p className='text-xs duration-500 ease-in-out text-red-600'>{errors.pin}</p>}
+                            {errors.pin && <p className='text-xs animate-fadeIn text-red-600'>{errors.pin}</p>}
 
                     </div> 
                                                

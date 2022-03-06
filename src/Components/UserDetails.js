@@ -6,7 +6,7 @@ function UserDetails() {
     const [session]=useSession()
     console.log(session);
     return (
-        <div className='py-10 flex-row '>
+        <div className='py-10 flex-row animate-fade '>
             {session && 
             <> 
             <div className=' rounded-full border-4 border-yellow-300 w-52 h-52'>
