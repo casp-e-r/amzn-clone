@@ -44,7 +44,7 @@ function ProductCard({product}) {
     }
 //    console.log(wishItem);
     return (
-        <div className=' animate-fade  relative   rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
+        <div className=' animate-fade relative   rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
             
             <div>
             <p className='absolute text-xs top-2 right-2 font-light'>{product.category}</p> 
