@@ -1,1 +1,1 @@
-https://amzn-clone-98p2ya21x-casp-e-r.vercel.app/
+https://amzn-clone-kesadkjni-casp-e-r.vercel.app/app/
