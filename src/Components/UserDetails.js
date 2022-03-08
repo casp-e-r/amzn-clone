@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function UserDetails() {
     const [session]=useSession()
-    console.log(session);
+
     return (
         <div className='py-10 flex-row animate-fade '>
             {session && 

@@ -11,7 +11,7 @@ function Orders() {
     // const [orderShip, setOrderShip] = useState()
      const dispatch = useDispatch()
      const checkout = useSelector(checkoutItems)
-    console.log(checkout.order);
+
     return (
         <div className='pt-5 w-full h-full overflow-hidden animate-fade '>
             {checkout.order.length ===0 ? <div className='mx-auto'>

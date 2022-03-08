@@ -18,7 +18,6 @@ export const checkoutSlice =createSlice({
             state.payment=action.payload
         },
         setOrder:(state,action)=>{
-            console.log(action);
             state.order=[...state.order,action.payload]
             state.step==='a'
         },

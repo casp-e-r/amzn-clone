@@ -11,20 +11,14 @@ function search({ products }) {
     const [results, setResults] = useState([])
     const search = useSelector(selectSearchItems)
 
-    // console.log(search.key);
-    // console.log(products);
-    
     useEffect(() => {
         setResults([])
         products.map(e => {
-            search.key.length >= 2 && 
-            e.title.toLowerCase().includes(search.key.toLowerCase()) && 
-            setResults(results=>[...results, e])
-            
-            // console.log(e);
+            search.key.length >= 2 &&
+                e.title.toLowerCase().includes(search.key.toLowerCase()) &&
+                setResults(results => [...results, e])
         })
     }, [search.key])
-    // console.log(results);
 
     dispatch(searchProducts(results))
 
@@ -38,16 +32,16 @@ function search({ products }) {
             <Navbar />
             <div className='m-10'>
                 <h1 className='mx-auto flex '>search results for<p className='font-bold ml-3'>' {search.key} '</p>  </h1>
-                {search.results.length===0 ? 
-                <div className='text-center justify-center mt-10 flex font-semibold'>
-                   No Results <EmojiSadIcon className='h-7 ml-3 animate-bounce '/>
-                </div> 
-                : 
-                <div className=''>
-                <p>{search.results.length} items</p>
-                </div>}
+                {search.results.length === 0 ?
+                    <div className='text-center justify-center mt-10 flex font-semibold'>
+                        No Results <EmojiSadIcon className='h-7 ml-3 animate-bounce ' />
+                    </div>
+                    :
+                    <div className=''>
+                        <p>{search.results.length} items</p>
+                    </div>}
             </div>
-            <SearchProducts/>
+            <SearchProducts />
 
 
 

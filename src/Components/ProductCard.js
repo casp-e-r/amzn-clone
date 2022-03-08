@@ -38,11 +38,11 @@ function ProductCard({product}) {
     
     const addItemToCart =  ()=>{
         const cartProduct= {...product,quantity:1}
-        //sending to store as action
+
          dispatch(addToCart(cartProduct))
         toast(<div className="  text-blue-900 flex justify-center">added to cart <ShoppingBagIcon  className="text-yellow-400  ml-5 h-6" /></div>,{style:{borderRadius:'10px',boxShadow:'500px'}})
     }
-//    console.log(wishItem);
+
     return (
         <div className=' animate-fade relative   rounded-lg flex flex-col justify-between shadow-2xl text-sm md:text-base bg-white m-2 p-8 lg:p-8 lg:m-4'>
             

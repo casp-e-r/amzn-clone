@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { SearchIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
-import { signIn, signOut, session, useSession } from "next-auth/client";
+import { signOut, useSession } from "next-auth/client";
 import Router from "next/router";
 import { useSelector,useDispatch } from 'react-redux';
 import { selectItems,showCart,toggleCart } from '../slices/cartSlice';
@@ -11,18 +11,10 @@ import { searchKey } from '../slices/searchSlice';
 function Navbar() {
     const [session] = useSession();
     const [search, setSearch] = useState('')
-    // const [show, setShow] = useState(false)
     const items = useSelector(selectItems)
     const toggle = useSelector(toggleCart)
     const dispatch = useDispatch()
-
-
-    useEffect(() => {
-      if(!toggle){
-        //document.body.style.overflow='hidden'
-        document.body.style.scrollMargin='none'
-      }
-    }) 
+ 
     
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -37,7 +29,7 @@ function Navbar() {
             <div className='flex items-center lg:space-x-12 '>
 
                 <div className='mx-1 md:mr-20 md:ml-10'>
-                   <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
+                   <Image src='/amzn.png' alt='amzn' width={110} height={55} objectFit='contain' layout='fixed' onClick={() => Router.push('/')} className='cursor-pointer' />
                 </div>
 
                 <div className='flex flex-grow justify-end items-center md:space-x-8'>
@@ -47,7 +39,7 @@ function Navbar() {
                         onChange={(e)=>setSearch(e.target.value)}
                         placeholder="Search..."
                         onKeyDown={handleKeyDown}/>
-                        <button
+                        <button name='search'
                         onClick={()=>{Router.push('/search'),dispatch(searchKey(search))}}><SearchIcon className='h-10 p-2 font-black cursor-pointer rounded-3xl hover:scale-110 hover:bg-opacity-30 duration-300' /></button>
                     </div>                
                     {session ? <div className="group inline-block relative items-center  ">

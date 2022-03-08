@@ -5,7 +5,7 @@ function OrderCard({order}) {
     order.cart.map(e=>{
         sum=sum+e.quantity*e.price
     })
-    console.log(order);
+
     return (
         <div className="w-full flex flex-row border-2 text-sm rounded border-blue-50 p-2 ">
             <div className="grid flex-grow rounded-md px-2  bg-blue-900 text-gray-200 ">

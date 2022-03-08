@@ -20,7 +20,7 @@ function  detail({product,products}) {
 
       })
     }, [product])
-    console.log(cProducts);
+
     
    
     return (
@@ -87,7 +87,7 @@ export async function getStaticPaths() {
 
   export async function getStaticProps({ params }) {
     // Fetch necessary data for the product details using params.id
-    console.log(params);
+ 
     const products =await fetch('https://fakestoreapi.com/products')
     .then(res=>res.json())
     const product =await fetch(`https://fakestoreapi.com/products/${params.id}`)

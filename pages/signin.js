@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 
 function signin({ providers }) {
-  console.log(providers);
+
   return (
     <div className='grid  justify-center mt-16 '>
       <Head>
@@ -17,21 +17,20 @@ function signin({ providers }) {
       <div className=' my-20 text-center text-black font-medium'>
         <Image src='/amzn.png' width={110} height={55} objectFit='contain' layout='responsive' onClick={() => Router.push('/')} className='cursor-pointer' />
         <p>log in  to amzn</p>
-        
 
       </div>
       <div className='' >
         {Object.values(providers).map((provider) => {
           return (
-            <div key={provider.name}  onClick={() => signIn(provider.id)}
-            className={`cursor-pointer hover:bg-black/80 rounded-2xl  flex items-center px-5 md:px-7 gap-x-4 py-1 md:py-1.5
-            ${provider.name === 'Google' ? "bg-black text-white" : provider.name === Google1 ? null: null}`}>
-              
+            <div key={provider.name} onClick={() => signIn(provider.id)}
+              className={`cursor-pointer hover:bg-black/80 rounded-2xl  flex items-center px-5 md:px-7 gap-x-4 py-1 md:py-1.5
+            ${provider.name === 'Google' ? "bg-black text-white" : provider.name === Google1 ? null : null}`}>
+
               <button className='' onClick={() => signIn(provider.id)}>
                 Sign in with {provider.name}
               </button>
               <Image width={50} height={50}
-              src={provider.name === 'Google' ? "/G.png" : provider.name === Google1 ? null: null}/>
+                src={provider.name === 'Google' ? "/G.png" : provider.name === Google1 ? null : null} />
             </div>
           );
         })}
@@ -41,7 +40,7 @@ function signin({ providers }) {
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Conditions of use</a>
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Privacy Notice</a>
         <a className='cursor-pointer hover:border-yellow-400 hover:border-b-2 hover:text-yellow-500'>Help</a>
-      </div> 
+      </div>
 
     </div>
   )

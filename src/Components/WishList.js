@@ -8,7 +8,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/outline'
 
 function WishList() {
     const wish = useSelector(selectWishItems)
- console.log(wish)
+
     return (
         <div className='relative py-10 animate-fade  '>
             

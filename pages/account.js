@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/client'
-import {Router} from 'next/router'
+import Router from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Footer from '../src/Components/Footer'
 import Navbar from '../src/Components/Navbar'
@@ -19,7 +19,7 @@ function account() {
     useEffect(() => {
         !session && Router.push('/')
     }, [session])
-    console.log(session);
+
     return (
         <div className='min-h-screen'>
 
@@ -33,9 +33,9 @@ function account() {
             <div className='min-h-screen  mt-16 animate-fadeIn '>
                 <div className=' mx-4 md:px-20  mt-10 h-5/6 mb-40 '>
                     <div className='pt-3 ml-4 border-b-2 border-yellow-50  gap-x-2 '>
-                        <button className={`${state === 0 ? 'rounded bg-yellow-200 ' :' border-blue-800 hover:bg-yellow-100'} px-4  border-l border-r`} onClick={() => setstate(0)}>Details</button>
-                        <button className={`${state === 1 ? 'rounded bg-yellow-200 ' :' border-blue-800 hover:bg-yellow-100'} px-4 `} onClick={() => setstate(1)}>Wishlist</button>
-                        <button className={`${state === 2 ? 'rounded bg-yellow-200 ' :'  border-blue-800 hover:bg-yellow-100'} px-4 border-l border-r `} onClick={() => setstate(2)}>Orders</button>
+                        <button className={`${state === 0 ? 'rounded bg-yellow-200 ' : ' border-blue-800 hover:bg-yellow-100'} px-4  border-l border-r`} onClick={() => setstate(0)}>Details</button>
+                        <button className={`${state === 1 ? 'rounded bg-yellow-200 ' : ' border-blue-800 hover:bg-yellow-100'} px-4 `} onClick={() => setstate(1)}>Wishlist</button>
+                        <button className={`${state === 2 ? 'rounded bg-yellow-200 ' : '  border-blue-800 hover:bg-yellow-100'} px-4 border-l border-r `} onClick={() => setstate(2)}>Orders</button>
                     </div>
                     <div className='  flex w-4/5 m-auto p-auto pt-3 h-full'>
                         {state === 0 ? <UserDetails /> : state === 1 ? <WishList /> : <Orders />}
@@ -43,7 +43,7 @@ function account() {
                 </div>
             </div>
             <Footer />
-            <ToastContainer 
+            <ToastContainer
                 position="top-center"
                 autoClose={4000}
                 hideProgressBar
@@ -52,8 +52,8 @@ function account() {
                 rtl={false}
                 pauseOnFocusLoss
                 draggable
-                pauseOnHove 
-                transition={Zoom}/>
+                pauseOnHove
+                transition={Zoom} />
         </div>
     )
 }
